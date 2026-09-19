@@ -4,32 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LAUS | E-commerce & Dropshipping</title>
-    <!-- Tailwind CSS para o design moderno e escuro -->
-    <script src="https://tailwindcss.com"></script>
+    
+    <!-- ⚠️ CORREÇÃO AQUI: Novo link oficial e estável do Tailwind CSS -->
+    <link href="https://unpkg.com@^2/dist/tailwind.min.css" rel="stylesheet">
+    
     <!-- FontAwesome para os ícones das abas -->
     <link rel="stylesheet" href="https://cloudflare.com">
+    
     <style>
-        /* Personalização da barra de rolagem das abas no celular */
+        /* CSS Personalizado para complementar o Tailwind */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Garantindo o fundo escuro caso o CSS demore a carregar */
+        body { background-color: #121212; color: #ffffff; }
+        
+        .card-produto {
+            background-color: #1a1a1a;
+            border: 1px border #2d3748;
+            transition: all 0.3s ease;
+        }
+        .card-produto:hover {
+            border-color: #3182ce;
+            transform: translateY(-4px);
+        }
     </style>
 </head>
 <body class="bg-[#121212] text-white font-sans min-h-screen flex flex-col">
 
     <!-- 1. CABEÇALHO (HEADER) -->
-    <header class="bg-[#0a1128] border-b border-gray-800 sticky top-0 z-50 px-4 py-3 shadow-md">
+    <header class="bg-[#0a1128] px-4 py-3 shadow-md border-b border-gray-800">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-            <!-- Logo LAUS -->
             <div class="text-left w-full md:w-auto">
-                <h1 class="text-2xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-400">LAUS</h1>
-                <p class="text-[10px] text-gray-400 tracking-widest font-semibold uppercase">E-commerce & Dropshipping</p>
+                <h1 class="text-2xl font-black tracking-wider text-blue-400">LAUS</h1>
+                <p class="text-xs text-gray-400 tracking-widest font-semibold uppercase">E-commerce & Dropshipping</p>
             </div>
-            <!-- Barra de Pesquisa -->
             <div class="relative w-full md:w-96">
-                <input type="text" id="inputPesquisa" placeholder="Buscar produtos..." class="w-full bg-[#1a1a1a] text-sm text-gray-200 pl-4 pr-10 py-2 rounded-full border border-gray-700 focus:outline-none focus:border-blue-500 transition-colors">
-                <i class="fa-solid fa-magnifying-glass absolute right-4 top-3 text-gray-500"></i>
+                <input type="text" id="inputPesquisa" placeholder="Buscar produtos..." class="w-full bg-[#1a1a1a] text-sm text-gray-200 pl-4 pr-10 py-2 rounded-full border border-gray-700 focus:outline-none focus:border-blue-500">
             </div>
-            <!-- Favoritos -->
             <div class="text-gray-300 text-sm font-medium flex items-center gap-2 hover:text-white cursor-pointer w-full md:w-auto justify-end">
                 <i class="fa-solid fa-heart text-red-500"></i>
                 <span>Favoritos (0)</span>
@@ -38,38 +50,34 @@
     </header>
 
     <!-- 2. MENU DE CATEGORIAS (10 ABAS) -->
-    <nav class="bg-[#1a1a1a] border-b border-gray-800 px-4 py-2 sticky top-[69px] z-40 shadow-sm">
+    <nav class="bg-[#1a1a1a] border-b border-gray-800 px-4 py-2 shadow-sm">
         <div class="max-w-7xl mx-auto flex items-center gap-2 overflow-x-auto no-scrollbar py-1" id="containerAbas">
-            <!-- As abas serão geradas automaticamente pelo JavaScript -->
+            <!-- Gerado via JS -->
         </div>
     </nav>
 
     <!-- 3. VITRINE PRINCIPAL -->
     <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-6">
         <div class="flex items-center justify-between mb-6 border-b border-gray-800 pb-3">
-            <h2 id="tituloCategoria" class="text-xl font-bold tracking-wide text-gray-100 flex items-center gap-2">
-                <!-- Título injetado via JS -->
-            </h2>
+            <h2 id="tituloCategoria" class="text-xl font-bold tracking-wide text-gray-100 flex items-center gap-2"></h2>
             <span id="contadorProdutos" class="text-xs text-gray-500 font-semibold bg-[#1a1a1a] px-3 py-1 rounded-full border border-gray-800">0 itens encontrados</span>
         </div>
 
-        <!-- Grade de Produtos -->
         <div id="gridProdutos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            <!-- Os cards dos produtos aparecerão aqui via JavaScript -->
+            <!-- Cards via JS -->
         </div>
     </main>
 
     <!-- 4. RODAPÉ (FOOTER) -->
     <footer class="bg-[#0a1128] border-t border-gray-800 px-4 py-6 text-center text-sm text-gray-400 mt-12">
         <p class="max-w-2xl mx-auto text-xs text-gray-500 mb-4">
-            Este site funciona como um catálogo vitrine. Ao clicar em "Ver Desconto", você será redirecionado para a plataforma oficial do parceiro para concluir a compra com total segurança.
+            Este site funciona como um catálogo vitrine. Ao clicar em "Ver Desconto", você será redirecionado para a plataforma oficial do parceiro.
         </p>
         <p>&copy; 2026 LAUS. Todos os direitos reservados.</p>
     </footer>
 
     <!-- 5. SISTEMA E CADASTRO DE PRODUTOS -->
     <script>
-        // Mapeamento das 10 abas com seus ícones correspondentes
         const categorias = [
             { id: "mais_vendidos", nome: "Mais Vendidos", icone: "fa-fire text-orange-500" },
             { id: "eletronicos", nome: "Eletrônicos", icone: "fa-mobile-screen-button text-blue-400" },
@@ -83,53 +91,31 @@
             { id: "brinquedos", nome: "Brinquedos", icone: "fa-puzzle-piece text-purple-400" }
         ];
 
-        // Categoria que inicia aberta ao carregar o site
         let categoriaAtiva = "eletronicos";
 
-        // =========================================================================
-        // 📦 ABAIXO FICA SUA LISTA DE PRODUTOS. PREENCHA AQUI MANUALMENTE!
-        // =========================================================================
+        // Lista de Produtos Cadastrados
         const produtos = [
-            // EXEMPLO PRONTO DE PRODUTO FISÍCO (Para você ver como fica)
             {
                 id: 1,
-                titulo: "fone de ouvido, fone sem fio, fone Bluetooth, fone TWS, fone Kaidi, Kaidi KD-771, fone Bluetooth Kaidi, fone de ouvido",
-                precoOriginal: 98.89,
-                precoOferta: 79.12,
-                desconto: "-20%",
-                imagem: "https://down-br.img.susercontent.com/file/br-11134207-820m1-mslvfs4gw5jbb8.webp",
-                categoria: "eletronicos", // Deve ser exatamente igual ao 'id' da categoria acima
-                linkAfiliado: "https://s.shopee.com.br/3g3ofIXgYo"
-            },
-            
-            // EXEMPLO PRONTO DE PRODUTO DIGITAL (Para você ver como fica)
-            {
-                id: 2,
-                titulo: "E-book: Receitas Práticas e Saudáveis para AirFryer",
-                precoOriginal: 49.90,
-                precoOferta: 24.90,
+                titulo: "Fone de Ouvido Bluetooth Sem Fio TWS - Antirruído Pro",
+                precoOriginal: 199.90,
+                precoOferta: 99.90,
                 desconto: "-50%",
                 imagem: "https://unsplash.com",
-                categoria: "ebooks",
-                linkAfiliado: "https://kiwify.com.br"
+                categoria: "eletronicos",
+                linkAfiliado: "#"
             },
-
-            // 🌟 ESTRUTURA VAZIA: COPIE DA LINHA ABAIXO ATÉ A VÍRGULA FINAL PARA ADICIONAR MAIS PRODUTOS:
             {
-                id: 3,
-                titulo: "COLE O NOME DO PRODUTO AQUI",
-                precoOriginal: 150.00,
-                precoOferta: 75.00,
-                desconto: "-50%",
-                imagem: "COLE_LINK_DA_IMAGEM_AQUI",
-                categoria: "ESCREVA_A_CATEGORIA_AQUI", 
-                linkAfiliado: "COLE_SEU_LINK_DE_AFILIADO_AQUI"
-            }, // <-- Lembre-se de sempre manter essa vírgula se for colocar outro produto abaixo!
-
+                id: 2,
+                titulo: "Relógio Smartwatch Digital Esportivo Inteligente Bluetooth",
+                precoOriginal: 249.90,
+                precoOferta: 129.90,
+                desconto: "-48%",
+                imagem: "https://unsplash.com",
+                categoria: "eletronicos",
+                linkAfiliado: "#"
+            }
         ];
-        // =========================================================================
-        // ⚙️ MOTOR DO SITE (Não altere nada abaixo a menos que saiba JavaScript)
-        // =========================================================================
 
         function inicializarSite() {
             renderizarAbas();
@@ -145,7 +131,7 @@
             container.innerHTML = categorias.map(cat => {
                 const ativa = cat.id === categoriaAtiva;
                 return `
-                    <button onclick="mudarCategoria('${cat.id}')" class="whitespace-nowrap flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold tracking-wide border transition-all duration-200 ${ativa ? 'bg-[#0052cc] border-blue-500 text-white shadow-md' : 'bg-[#222] border-gray-800 text-gray-400 hover:bg-[#2a2a2a] hover:text-gray-200'}">
+                    <button onclick="mudarCategoria('${cat.id}')" class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold border transition-all duration-200 ${ativa ? 'bg-blue-600 border-blue-500 text-white' : 'bg-gray-800 border-gray-700 text-gray-400 hover:text-white'}">
                         <i class="fa-solid ${cat.icone}"></i>
                         <span>${cat.nome}</span>
                     </button>
@@ -174,11 +160,36 @@
                 return matchesCategoria && matchesPesquisa;
             });
 
-            contador.textContent = `${produtosFiltrados.length} ${produtosFiltrados.length === 1 ? 'item encontrado' : 'itens encontrados'}`;
+            contador.textContent = `${produtosFiltrados.length} encontrados`;
 
             if (produtosFiltrados.length === 0) {
                 grid.innerHTML = `
                     <div class="col-span-full text-center py-12 text-gray-500">
-                        <i class="fa-solid fa-box-open text-4xl mb-3 block"></i>
-                        <p class="text-sm">Nenhum produto cadastrado ou encontrado nesta seção ainda.</p>
+                        <p class="text-sm">Nenhum produto cadastrado nesta seção ainda.</p>
                     </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = produtosFiltrados.map(p => `
+                <div class="card-produto rounded-xl overflow-hidden shadow-lg flex flex-col p-4">
+                    <div class="relative w-full h-48 bg-[#222] rounded-lg overflow-hidden mb-4">
+                        <img src="${p.imagem}" alt="${p.titulo}" class="w-full h-full object-cover">
+                        <span class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded">${p.desconto}</span>
+                    </div>
+                    <h3 class="text-sm font-medium text-gray-200 h-10 overflow-hidden mb-2">${p.titulo}</h3>
+                    <div class="mb-4">
+                        <span class="text-xs text-gray-500 line-through block">R$ ${p.precoOriginal.toFixed(2).replace('.', ',')}</span>
+                        <span class="text-lg font-bold text-blue-400">R$ ${p.precoOferta.toFixed(2).replace('.', ',')}</span>
+                    </div>
+                    <a href="${p.linkAfiliado}" target="_blank" class="w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs py-2 rounded-lg block uppercase tracking-wider">
+                        Ver Desconto
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        window.onload = inicializarSite;
+    </script>
+</body>
+</html>
