@@ -5,95 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LAUS | E-commerce & Dropshipping</title>
     
-    <!-- ⚠️ CORREÇÃO AQUI: Novo link oficial e estável do Tailwind CSS -->
-    <link href="https://unpkg.com@^2/dist/tailwind.min.css" rel="stylesheet">
-    
-    <!-- FontAwesome para os ícones das abas -->
-    <link rel="stylesheet" href="https://cloudflare.com">
-    
+    <!-- CSS Nativo Embutido para evitar bloqueios de CDN -->
     <style>
-        /* CSS Personalizado para complementar o Tailwind */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: #121212; color: #ffffff; min-h-screen: 100vh; display: flex; flex-direction: column; }
         
-        /* Garantindo o fundo escuro caso o CSS demore a carregar */
-        body { background-color: #121212; color: #ffffff; }
+        /* 1. Cabeçalho */
+        header { background-color: #0a1128; border-b: 1px solid #222; padding: 15px 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 15px; }
+        @media (min-width: 768px) { .header-container { flex-direction: row; } }
+        .logo h1 { color: #3b82f6; font-size: 24px; font-weight: 900; tracking: 1px; }
+        .logo p { color: #9ca3af; font-size: 10px; text-transform: uppercase; font-weight: bold; letter-spacing: 2px; }
+        .pesquisa-box { position: relative; width: 100%; max-width: 380px; }
+        .pesquisa-box input { w-full: 100%; width: 100%; background-color: #1a1a1a; color: #e5e7eb; font-size: 14px; padding: 10px 20px; border-radius: 50px; border: 1px solid #374151; outline: none; transition: border 0.2s; }
+        .pesquisa-box input:focus { border-color: #3b82f6; }
+        .favoritos { color: #d1d5db; font-size: 14px; cursor: pointer; text-decoration: none; }
+        .favoritos:hover { color: #fff; }
+
+        /* 2. Menu de Abas */
+        nav { background-color: #1a1a1a; border-bottom: 1px solid #222; padding: 10px 20px; position: sticky; top: 65px; z-index: 90; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; }
+        .nav-container::-webkit-scrollbar { display: none; }
+        .btn-aba { whitespace: nowrap; background-color: #2d3748; border: 1px solid #4a5568; color: #a0aec0; font-size: 12px; font-weight: 600; padding: 8px 16px; border-radius: 50px; cursor: pointer; transition: all 0.2s; }
+        .btn-aba.ativa { background-color: #2563eb; border-color: #3b82f6; color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        .btn-aba:hover { color: #fff; border-color: #718096; }
+
+        /* 3. Vitrine */
+        main { flex-grow: 1; max-width: 1200px; width: 100%; margin: 0 auto; padding: 25px 20px; }
+        .vitrine-topo { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-bottom: 1px solid #222; padding-bottom: 10px; }
+        .vitrine-topo h2 { font-size: 20px; font-weight: 700; color: #f3f4f6; }
+        .contador { font-size: 12px; color: #6b7280; font-weight: 600; background-color: #1a1a1a; padding: 4px 12px; border-radius: 50px; border: 1px solid #222; }
         
-        .card-produto {
-            background-color: #1a1a1a;
-            border: 1px border #2d3748;
-            transition: all 0.3s ease;
-        }
-        .card-produto:hover {
-            border-color: #3182ce;
-            transform: translateY(-4px);
-        }
+        /* Grade de Cards */
+        .grid-produtos { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        @media (min-width: 480px) { .grid-produtos { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 768px) { .grid-produtos { grid-template-columns: repeat(3, 1fr); } }
+        @media (min-width: 1024px) { .grid-produtos { grid-template-columns: repeat(4, 1fr); } }
+        
+        /* Estrutura do Card */
+        .card-produto { background-color: #1a1a1a; border: 1px solid #2d3748; border-radius: 12px; overflow: hidden; padding: 16px; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; }
+        .card-produto:hover { transform: translateY(-4px); border-color: #2563eb; }
+        .img-container { relative: position; position: relative; width: 100%; height: 180px; background-color: #222; rounded: 8px; border-radius: 8px; overflow: hidden; margin-bottom: 12px; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; }
+        .tag-desconto { position: absolute; top: 8px; right: 8px; background-color: #dc2626; color: #fff; font-size: 11px; font-weight: bold; padding: 2px 6px; border-radius: 4px; }
+        .card-titulo { font-size: 14px; font-weight: 500; color: #e5e7eb; height: 40px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin-bottom: 8px; }
+        .precos { margin-top: auto; margin-bottom: 12px; }
+        .preco-antigo { font-size: 12px; color: #6b7280; text-decoration: line-through; display: block; }
+        .preco-atual { font-size: 18px; font-weight: 700; color: #60a5fa; display: block; }
+        .btn-comprar { width: 100%; text-align: center; background-color: #2563eb; color: #fff; font-weight: bold; font-size: 12px; padding: 10px; border-radius: 8px; text-decoration: none; text-transform: uppercase; tracking: 0.5px; display: block; transition: background 0.2s; }
+        .btn-comprar:hover { background-color: #1d4ed8; }
+
+        /* 4. Rodapé */
+        footer { background-color: #0a1128; border-t: 1px solid #222; padding: 25px 20px; text-center: center; text-align: center; font-size: 14px; color: #9ca3af; margin-top: auto; }
+        footer p.aviso { max-width: 600px; margin: 0 auto 15px auto; font-size: 11px; color: #4b5563; }
     </style>
 </head>
-<body class="bg-[#121212] text-white font-sans min-h-screen flex flex-col">
+<body>
 
-    <!-- 1. CABEÇALHO (HEADER) -->
-    <header class="bg-[#0a1128] px-4 py-3 shadow-md border-b border-gray-800">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="text-left w-full md:w-auto">
-                <h1 class="text-2xl font-black tracking-wider text-blue-400">LAUS</h1>
-                <p class="text-xs text-gray-400 tracking-widest font-semibold uppercase">E-commerce & Dropshipping</p>
+    <!-- 1. CABEÇALHO -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>LAUS</h1>
+                <p>E-commerce & Dropshipping</p>
             </div>
-            <div class="relative w-full md:w-96">
-                <input type="text" id="inputPesquisa" placeholder="Buscar produtos..." class="w-full bg-[#1a1a1a] text-sm text-gray-200 pl-4 pr-10 py-2 rounded-full border border-gray-700 focus:outline-none focus:border-blue-500">
+            <div class="pesquisa-box">
+                <input type="text" id="inputPesquisa" placeholder="Buscar produtos...">
             </div>
-            <div class="text-gray-300 text-sm font-medium flex items-center gap-2 hover:text-white cursor-pointer w-full md:w-auto justify-end">
-                <i class="fa-solid fa-heart text-red-500"></i>
-                <span>Favoritos (0)</span>
-            </div>
+            <a href="#" class="favoritos">❤️ Favoritos (0)</a>
         </div>
     </header>
 
     <!-- 2. MENU DE CATEGORIAS (10 ABAS) -->
-    <nav class="bg-[#1a1a1a] border-b border-gray-800 px-4 py-2 shadow-sm">
-        <div class="max-w-7xl mx-auto flex items-center gap-2 overflow-x-auto no-scrollbar py-1" id="containerAbas">
-            <!-- Gerado via JS -->
+    <nav>
+        <div class="nav-container" id="containerAbas">
+            <!-- Injetado via JS -->
         </div>
     </nav>
 
-    <!-- 3. VITRINE PRINCIPAL -->
-    <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-6">
-        <div class="flex items-center justify-between mb-6 border-b border-gray-800 pb-3">
-            <h2 id="tituloCategoria" class="text-xl font-bold tracking-wide text-gray-100 flex items-center gap-2"></h2>
-            <span id="contadorProdutos" class="text-xs text-gray-500 font-semibold bg-[#1a1a1a] px-3 py-1 rounded-full border border-gray-800">0 itens encontrados</span>
+    <!-- 3. VITRINE -->
+    <main>
+        <div class="vitrine-topo">
+            <h2 id="tituloCategoria">Carregando...</h2>
+            <span id="contadorProdutos" class="contador">0 itens</span>
         </div>
 
-        <div id="gridProdutos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div id="gridProdutos" class="grid-produtos">
             <!-- Cards via JS -->
         </div>
     </main>
 
-    <!-- 4. RODAPÉ (FOOTER) -->
-    <footer class="bg-[#0a1128] border-t border-gray-800 px-4 py-6 text-center text-sm text-gray-400 mt-12">
-        <p class="max-w-2xl mx-auto text-xs text-gray-500 mb-4">
-            Este site funciona como um catálogo vitrine. Ao clicar em "Ver Desconto", você será redirecionado para a plataforma oficial do parceiro.
-        </p>
+    <!-- 4. RODAPÉ -->
+    <footer>
+        <p class="aviso">Este site funciona como um catálogo vitrine. Ao clicar em "Ver Desconto", você será redirecionado para a plataforma oficial do parceiro para concluir a compra de forma segura.</p>
         <p>&copy; 2026 LAUS. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- 5. SISTEMA E CADASTRO DE PRODUTOS -->
+    <!-- 5. JAVASCRIPT CORRIGIDO -->
     <script>
         const categorias = [
-            { id: "mais_vendidos", nome: "Mais Vendidos", icone: "fa-fire text-orange-500" },
-            { id: "eletronicos", nome: "Eletrônicos", icone: "fa-mobile-screen-button text-blue-400" },
-            { id: "casa_cozinha", nome: "Casa e Cozinha", icone: "fa-house text-amber-500" },
-            { id: "moda_beleza", nome: "Moda e Beleza", icone: "fa-wand-magic-sparkles text-pink-400" },
-            { id: "pet_shop", nome: "Pet Shop", icone: "fa-dog text-teal-400" },
-            { id: "saude_fitness", nome: "Saúde e Fitness", icone: "fa-bullseye text-red-500" },
-            { id: "cursos", nome: "Cursos Digitais", icone: "fa-graduation-cap text-indigo-400" },
-            { id: "ebooks", nome: "E-books", icone: "fa-book-open text-emerald-400" },
-            { id: "ferramentas", nome: "Ferramentas", icone: "fa-screwdriver-wrench text-slate-400" },
-            { id: "brinquedos", nome: "Brinquedos", icone: "fa-puzzle-piece text-purple-400" }
+            { id: "mais_vendidos", nome: "🔥 Mais Vendidos" },
+            { id: "eletronicos", nome: "📱 Eletrônicos" },
+            { id: "casa_cozinha", nome: "🏠 Casa e Cozinha" },
+            { id: "moda_beleza", nome: "💅 Moda e Beleza" },
+            { id: "pet_shop", nome: "🐶 Pet Shop" },
+            { id: "saude_fitness", nome: "🎯 Saúde e Fitness" },
+            { id: "cursos", nome: "🎓 Cursos Digitais" },
+            { id: "ebooks", nome: "📚 E-books" },
+            { id: "ferramentas", nome: "🛠️ Ferramentas" },
+            { id: "brinquedos", nome: "🧸 Brinquedos" }
         ];
 
         let categoriaAtiva = "eletronicos";
 
-        // Lista de Produtos Cadastrados
         const produtos = [
             {
                 id: 1,
@@ -120,7 +144,6 @@
         function inicializarSite() {
             renderizarAbas();
             renderizarProdutos();
-            
             document.getElementById('inputPesquisa').addEventListener('input', (e) => {
                 renderizarProdutos(e.target.value);
             });
@@ -131,9 +154,8 @@
             container.innerHTML = categorias.map(cat => {
                 const ativa = cat.id === categoriaAtiva;
                 return `
-                    <button onclick="mudarCategoria('${cat.id}')" class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold border transition-all duration-200 ${ativa ? 'bg-blue-600 border-blue-500 text-white' : 'bg-gray-800 border-gray-700 text-gray-400 hover:text-white'}">
-                        <i class="fa-solid ${cat.icone}"></i>
-                        <span>${cat.nome}</span>
+                    <button onclick="mudarCategoria('${cat.id}')" class="btn-aba ${ativa ? 'ativa' : ''}">
+                        ${cat.nome}
                     </button>
                 `;
             }).join('');
@@ -152,45 +174,11 @@
             const contador = document.getElementById('contadorProdutos');
             
             const catAtual = categorias.find(c => c.id === categoriaAtiva);
-            tituloSeacao.innerHTML = `<i class="fa-solid ${catAtual.icone}"></i> ${catAtual.nome}`;
+            tituloSeacao.textContent = catAtual.nome;
 
             const produtosFiltrados = produtos.filter(p => {
                 const matchesCategoria = p.categoria === categoriaAtiva;
                 const matchesPesquisa = p.titulo.toLowerCase().includes(termoPesquisa.toLowerCase());
                 return matchesCategoria && matchesPesquisa;
             });
-
-            contador.textContent = `${produtosFiltrados.length} encontrados`;
-
-            if (produtosFiltrados.length === 0) {
-                grid.innerHTML = `
-                    <div class="col-span-full text-center py-12 text-gray-500">
-                        <p class="text-sm">Nenhum produto cadastrado nesta seção ainda.</p>
-                    </div>
-                `;
-                return;
-            }
-
-            grid.innerHTML = produtosFiltrados.map(p => `
-                <div class="card-produto rounded-xl overflow-hidden shadow-lg flex flex-col p-4">
-                    <div class="relative w-full h-48 bg-[#222] rounded-lg overflow-hidden mb-4">
-                        <img src="${p.imagem}" alt="${p.titulo}" class="w-full h-full object-cover">
-                        <span class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded">${p.desconto}</span>
-                    </div>
-                    <h3 class="text-sm font-medium text-gray-200 h-10 overflow-hidden mb-2">${p.titulo}</h3>
-                    <div class="mb-4">
-                        <span class="text-xs text-gray-500 line-through block">R$ ${p.precoOriginal.toFixed(2).replace('.', ',')}</span>
-                        <span class="text-lg font-bold text-blue-400">R$ ${p.precoOferta.toFixed(2).replace('.', ',')}</span>
-                    </div>
-                    <a href="${p.linkAfiliado}" target="_blank" class="w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs py-2 rounded-lg block uppercase tracking-wider">
-                        Ver Desconto
-                    </a>
-                </div>
-            `).join('');
-        }
-
-        window.onload = inicializarSite;
-    </script>
-</body>
-</html>
 
