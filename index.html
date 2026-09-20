@@ -4,82 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LAUS | E-commerce & Dropshipping</title>
-    
-    <!-- CSS Nativo de Altíssima Performance (Sem Dependências Externas) -->
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
         body { background-color: #121212; color: #ffffff; min-height: 100vh; display: flex; flex-direction: column; }
         
-        /* Cabeçalho Otimizado */
-        header { background-color: #0a1128; border-b: 1px solid #1f2937; padding: 12px 20px; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.4); }
-        .header-container { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 12px; }
-        @media (min-width: 768px) { .header-container { flex-direction: row; } }
-        .logo h1 { color: #3b82f6; font-size: 24px; font-weight: 900; letter-spacing: 1px; line-height: 1; }
-        .logo p { color: #9ca3af; font-size: 9px; text-transform: uppercase; font-weight: bold; letter-spacing: 2px; margin-top: 4px; }
-        .pesquisa-box { position: relative; width: 100%; max-width: 380px; }
-        .pesquisa-box input { width: 100%; background-color: #1a1a1a; color: #e5e7eb; font-size: 14px; padding: 8px 16px; border-radius: 50px; border: 1px solid #374151; outline: none; }
-        .pesquisa-box input:focus { border-color: #3b82f6; }
-        .favoritos { color: #d1d5db; font-size: 14px; cursor: pointer; text-decoration: none; font-weight: 500; }
-        .favoritos:hover { color: #fff; }
+        header { background-color: #0a1128; border-b: 1px solid #1f2937; padding: 15px; text-align: center; }
+        .logo h1 { color: #3b82f6; font-size: 24px; font-weight: 900; }
+        .logo p { color: #9ca3af; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        
+        nav { background-color: #1a1a1a; padding: 10px; overflow-x: auto; display: flex; gap: 8px; justify-content: center; }
+        .btn-aba { white-space: nowrap; background-color: #2d3748; border: 1px solid #4a5568; color: #a0aec0; font-size: 12px; padding: 8px 16px; border-radius: 20px; cursor: pointer; }
+        .btn-aba.ativa { background-color: #2563eb; border-color: #3b82f6; color: #fff; }
 
-        /* Menu de Abas Otimizado com Scroll Lateral */
-        nav { background-color: #1a1a1a; border-bottom: 1px solid #2d3748; padding: 8px 20px; position: sticky; top: 55px; z-index: 90; }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; gap: 8px; overflow-x: auto; scroll-behavior: smooth; }
-        .nav-container::-webkit-scrollbar { display: none; }
-        .nav-container { -ms-overflow-style: none; scrollbar-width: none; }
-        .btn-aba { white-space: nowrap; background-color: #2d3748; border: 1px solid #4a5568; color: #a0aec0; font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 50px; cursor: pointer; transition: all 0.15s ease; }
-        .btn-aba.ativa { background-color: #2563eb; border-color: #3b82f6; color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.3); }
-
-        /* Vitrine e Grid de Produtos */
         main { flex-grow: 1; max-width: 1200px; width: 100%; margin: 0 auto; padding: 20px; }
-        .vitrine-topo { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #2d3748; padding-bottom: 8px; }
-        .vitrine-topo h2 { font-size: 18px; font-weight: 700; color: #f3f4f6; }
-        .contador { font-size: 11px; color: #9ca3af; font-weight: 600; background-color: #1a1a1a; padding: 3px 10px; border-radius: 50px; border: 1px solid #2d3748; }
+        .vitrine-topo { display: flex; justify-content: space-between; margin-bottom: 20px; }
         
-        .grid-produtos { display: grid; grid-template-columns: 1fr; gap: 16px; }
-        @media (min-width: 480px) { .grid-produtos { grid-template-columns: repeat(2, 1fr); } }
-        @media (min-width: 768px) { .grid-produtos { grid-template-columns: repeat(3, 1fr); } }
-        @media (min-width: 1024px) { .grid-produtos { grid-template-columns: repeat(4, 1fr); } }
-        
-        /* Layout de Card Renderizado na Hora */
-        .card-produto { background-color: #161616; border: 1px solid #2d3748; border-radius: 10px; overflow: hidden; padding: 12px; display: flex; flex-direction: column; transition: transform 0.2s ease, border-color 0.2s ease; }
-        .card-produto:hover { transform: translateY(-3px); border-color: #2563eb; }
-        .img-container { position: relative; width: 100%; height: 160px; background-color: #222; border-radius: 6px; overflow: hidden; margin-bottom: 10px; }
+        .grid-produtos { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        .card-produto { background-color: #161616; border: 1px solid #2d3748; border-radius: 10px; padding: 15px; display: flex; flex-direction: column; }
+        .img-container { width: 100%; height: 160px; background-color: #222; border-radius: 6px; overflow: hidden; margin-bottom: 10px; position: relative; }
         .img-container img { width: 100%; height: 100%; object-fit: cover; }
-        .tag-desconto { position: absolute; top: 6px; right: 6px; background-color: #dc2626; color: #fff; font-size: 10px; font-weight: bold; padding: 2px 5px; border-radius: 4px; }
-        .card-titulo { font-size: 13px; font-weight: 500; color: #e5e7eb; height: 36px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin-bottom: 8px; line-height: 1.4; }
-        .precos { margin-top: auto; margin-bottom: 10px; }
-        .preco-antigo { font-size: 11px; color: #6b7280; text-decoration: line-through; display: block; margin-bottom: 2px; }
-        .preco-atual { font-size: 16px; font-weight: 700; color: #60a5fa; display: block; }
-        .btn-comprar { width: 100%; text-align: center; background-color: #2563eb; color: #fff; font-weight: bold; font-size: 11px; padding: 8px; border-radius: 6px; text-decoration: none; text-transform: uppercase; tracking: 0.5px; display: block; transition: background 0.15s ease; }
-        .btn-comprar:hover { background-color: #1d4ed8; }
+        .tag-desconto { position: absolute; top: 5px; right: 5px; background-color: #dc2626; color: #fff; font-size: 10px; font-weight: bold; padding: 2px 5px; border-radius: 4px; }
+        .card-titulo { font-size: 14px; color: #e5e7eb; margin-bottom: 10px; min-height: 36px; }
+        .preco-antigo { font-size: 11px; color: #6b7280; text-decoration: line-through; display: block; }
+        .preco-atual { font-size: 16px; font-weight: 700; color: #60a5fa; margin-bottom: 12px; display: block; }
+        .btn-comprar { width: 100%; text-align: center; background-color: #2563eb; color: #fff; font-weight: bold; font-size: 12px; padding: 10px; border-radius: 6px; text-decoration: none; display: block; }
 
-        footer { background-color: #0a1128; border-top: 1px solid #1f2937; padding: 20px; text-align: center; font-size: 12px; color: #9ca3af; margin-top: auto; }
-        footer p.aviso { max-width: 600px; margin: 0 auto 10px auto; font-size: 10px; color: #4b5563; line-height: 1.4; }
+        footer { background-color: #0a1128; padding: 20px; text-align: center; font-size: 12px; color: #9ca3af; margin-top: auto; }
     </style>
 </head>
 <body>
 
     <!-- 1. CABEÇALHO -->
     <header>
-        <div class="header-container">
-            <div class="logo">
-                <h1>LAUS</h1>
-                <p>E-commerce & Dropshipping</p>
-            </div>
-            <div class="pesquisa-box">
-                <input type="text" id="inputPesquisa" placeholder="Buscar produtos...">
-            </div>
-            <a href="#" class="favoritos">❤️ Favoritos (0)</a>
+        <div class="logo">
+            <h1>LAUS</h1>
+            <p>E-commerce & Dropshipping</p>
         </div>
     </header>
 
     <!-- 2. MENU DE CATEGORIAS -->
-    <nav>
-        <div class="nav-container" id="containerAbas">
-            <!-- Injetado via JS de forma instantânea -->
-        </div>
-    </nav>
+    <nav id="containerAbas"></nav>
 
     <!-- 3. VITRINE -->
     <main>
@@ -87,36 +51,25 @@
             <h2 id="tituloCategoria">Carregando...</h2>
             <span id="contadorProdutos" class="contador">0 itens</span>
         </div>
-
-        <div id="gridProdutos" class="grid-produtos">
-            <!-- Injetado via JS de forma instantânea -->
-        </div>
+        <div id="gridProdutos" class="grid-produtos"></div>
     </main>
 
     <!-- 4. RODAPÉ -->
     <footer>
-        <p class="aviso">Este site funciona como um catálogo vitrine. Ao clicar em "Ver Desconto", você será redirecionado para a plataforma oficial do parceiro para concluir a compra de forma segura.</p>
         <p>&copy; 2026 LAUS. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- 5. JAVASCRIPT DE RENDERIZAÇÃO INSTANTÂNEA -->
+    <!-- 5. SCRIPT À PROVA DE FALHAS -->
     <script>
         const categorias = [
             { id: "mais_vendidos", nome: "🔥 Mais Vendidos" },
             { id: "eletronicos", nome: "📱 Eletrônicos" },
             { id: "casa_cozinha", nome: "🏠 Casa e Cozinha" },
-            { id: "moda_beleza", nome: "💅 Moda e Beleza" },
-            { id: "pet_shop", nome: "🐶 Pet Shop" },
-            { id: "saude_fitness", nome: "🎯 Saúde e Fitness" },
-            { id: "cursos", nome: "🎓 Cursos Digitais" },
-            { id: "ebooks", nome: "📚 E-books" },
-            { id: "ferramentas", nome: "🛠️ Ferramentas" },
-            { id: "brinquedos", nome: "🧸 Brinquedos" }
+            { id: "moda_beleza", nome: "💅 Moda e Beleza" }
         ];
 
         let categoriaAtiva = "eletronicos";
 
-        // Imagens otimizadas com dimensões reduzidas (?w=400) para economizar dados e abrir em milissegundos
         const produtos = [
             {
                 id: 1,
@@ -140,39 +93,71 @@
             }
         ];
 
-        function inicializarSite() {
-            renderizarAbas();
-            renderizarProdutos();
-            document.getElementById('inputPesquisa').addEventListener('input', (e) => {
-                renderizarProdutos(e.target.value);
-            });
-        }
-
         function renderizarAbas() {
             const container = document.getElementById('containerAbas');
-            container.innerHTML = categorias.map(cat => {
-                const ativa = cat.id === categoriaAtiva;
-                return `
-                    <button onclick="mudarCategoria('${cat.id}')" class="btn-aba ${ativa ? 'ativa' : ''}">
-                        ${cat.nome}
-                    </button>
-                `;
-            }).join('');
+            if(!container) return;
+            
+            let html = "";
+            for (let i = 0; i < categorias.length; i++) {
+                const cat = categorias[i];
+                const classeAtiva = cat.id === categoriaAtiva ? 'ativa' : '';
+                html += `<button onclick="mudarCategoria('${cat.id}')" class="btn-aba ${classeAtiva}">${cat.nome}</button>`;
+            }
+            container.innerHTML = html;
         }
 
         function mudarCategoria(idCategoria) {
             categoriaAtiva = idCategoria;
-            document.getElementById('inputPesquisa').value = ''; 
             renderizarAbas();
             renderizarProdutos();
         }
 
-        function renderizarProdutos(termoPesquisa = '') {
+        function renderizarProdutos() {
             const grid = document.getElementById('gridProdutos');
             const tituloSeacao = document.getElementById('tituloCategoria');
             const contador = document.getElementById('contadorProdutos');
             
-            const catAtual = categorias.find(c => c.id === categoriaAtiva);
-            tituloSeacao.textContent = catAtual.nome;
+            if(!grid || !tituloSeacao || !contador) return;
 
-            const produtosFiltrados = produtos.filter(p => {
+            const catAtual = categorias.find(c => c.id === categoriaAtiva);
+            tituloSeacao.textContent = catAtual ? catAtual.nome : "";
+
+            const filtrados = [];
+            for (let i = 0; i < produtos.length; i++) {
+                if (produtos[i].categoria === categoriaAtiva) {
+                    filtrados.push(produtos[i]);
+                }
+            }
+
+            contador.textContent = filtrados.length + " encontrados";
+
+            if (filtrados.length === 0) {
+                grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: #6b7280; padding: 40px 0;">Nenhum item nesta categoria.</div>`;
+                return;
+            }
+
+            let htmlProdutos = "";
+            for (let i = 0; i < filtrados.length; i++) {
+                const p = filtrados[i];
+                htmlProdutos += `
+                    <div class="card-produto">
+                        <div class="img-container">
+                            <img src="${p.imagem}" alt="${p.titulo}">
+                            <span class="tag-desconto">${p.desconto}</span>
+                        </div>
+                        <h3 class="card-titulo">${p.titulo}</h3>
+                        <span class="preco-antigo">R$ ${p.precoOriginal.toFixed(2).replace('.', ',')}</span>
+                        <span class="preco-atual">R$ ${p.precoOferta.toFixed(2).replace('.', ',')}</span>
+                        <a href="${p.linkAfiliado}" target="_blank" class="btn-comprar">Ver Desconto</a>
+                    </div>
+                `;
+            }
+            grid.innerHTML = htmlProdutos;
+        }
+
+        // Execução direta e segura
+        renderizarAbas();
+        renderizarProdutos();
+    </script>
+</body>
+</html>
