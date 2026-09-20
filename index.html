@@ -112,26 +112,35 @@
 
         let categoriaAtiva = "mais_vendidos";
 
-        // Iniciando a montagem da lista de produtos reais sem erros de renderização
         const produtos = [
-            { id: 1, titulo: "40 Peças / 46 Peças Jogo De Chave Catraca Caixa Oficina", precoOriginal: 87.84, precoOferta: 28.99, desconto: "-67%", imagem: "https://picsum.photos", categoria: "ferramentas", linkAfiliado: "https://shopee.com.br" },
-            { id: 2, titulo: "2026 Nova Série 9 Relógio T800 Ultra Smart Watch Esportivo", precoOriginal: 164.25, precoOferta: 45.99, desconto: "-72%", imagem: "https://picsum.photos", categoria: "eletronicos", linkAfiliado: "https://shopee.com.br" },
-            { id: 3, titulo: "Daily T-shirt Insider Antisuor Tecnológica Slim Fit", precoOriginal: 139.13, precoOferta: 64.00, desconto: "-54%", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 4, titulo: "Jogo de Lençol 400 Fios Micropercal Fronha Ponto Palito", precoOriginal: 29.78, precoOferta: 13.70, desconto: "-54%", imagem: "https://picsum.photos", categoria: "casa_cozinha", linkAfiliado: "https://shopee.com.br" },
-            { id: 5, titulo: "Alaxe5 Geração Alto Falante Original Som Inteligente Home", precoOriginal: 199.96, precoOferta: 49.99, desconto: "-75%", imagem: "https://picsum.photos", categoria: "eletronicos", linkAfiliado: "https://shopee.com.br" },
-            { id: 6, titulo: "Calça Pantalona Social Feminina Sensoriel Marrant Cintura Alta", precoOriginal: 78.00, precoOferta: 66.32, desconto: "-15%", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 7, titulo: "Espremedor Elétrico Laranja Limão Frutas Sucos Portátil", precoOriginal: 139.90, precoOferta: 61.69, desconto: "-56%", imagem: "https://picsum.photos", categoria: "eletronicos", linkAfiliado: "https://shopee.com.br" },
-            { id: 8, titulo: "Protetor de Porta do Carro Amortecedor Borracha Antirruído", precoOriginal: 21.98, precoOferta: 10.99, desconto: "-50%", imagem: "https://picsum.photos", categoria: "mais_vendidos", linkAfiliado: "https://shopee.com.br" },
-            { id: 9, titulo: "Bicicleta Bike Ergométrica Spinning Academia Fitness Ginástica", precoOriginal: 1586.17, precoOferta: 459.99, desconto: "-71%", imagem: "https://picsum.photos", categoria: "casa_cozinha", linkAfiliado: "https://shopee.com.br" },
-            { id: 10, titulo: "Chave De Impacto Brushless 500Nm Sem Fio Com Baterias", precoOriginal: 310.32, precoOferta: 179.99, desconto: "-42%", imagem: "https://picsum.photos0", categoria: "ferramentas", linkAfiliado: "https://shopee.com.br" },
-            // === LOTES DOS SEUS PRINTS: PARTE 2 ===
+            // === LOTE 1 ===
+            { id: 1, titulo: "40 Peças / 46 Peças Jogo De Chave Catraca Caixa Oficina", precoOriginal: 87.84, precoOferta: 28.99, desconto: "-67%", imagem: "https://susercontent.com", categoria: "ferramentas", linkAfiliado: "https://shopee.com.br" },
+            { id: 2, titulo: "2026 Nova Série 9 Relógio T800 Ultra Smart Watch Esportivo", precoOriginal: 164.25, precoOferta: 45.99, desconto: "-72%", imagem: "https://susercontent.com", categoria: "eletronicos", linkAfiliado: "https://shopee.com.br" },
+            { id: 3, titulo: "Daily T-shirt Insider Antisuor Tecnológica Slim Fit", precoOriginal: 139.13, precoOferta: 64.00, desconto: "-54%", imagem: "https://susercontent.com", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
+            { id: 4, titulo: "Jogo de Lençol 400 Fios Micropercal Fronha Ponto Palito", precoOriginal: 29.78, precoOferta: 13.70, desconto: "-54%", imagem: "https://susercontent.com", categoria: "casa_cozinha", linkAfiliado: "https://shopee.com.br" },
+            { id: 5, titulo: "Alaxe5 Geração Alto Falante Original Som Inteligente Home", precoOriginal: 199.96, precoOferta: 49.99, discount: "-75%", imagem: "https://susercontent.com", categoria: "eletronicos", linkAfiliado: "https://shopee.com.br" },
+            { id: 6, titulo: "Calça Pantalona Social Feminina Sensoriel Marrant Cintura Alta", precoOriginal: 78.00, precoOferta: 66.32, desconto: "-15%", imagem: "https://susercontent.com", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
+            { id: 7, titulo: "Espremedor Elétrico Laranja Limão Frutas Sucos Portátil", precoOriginal: 139.90, precoOferta: 61.69, desconto: "-56%", imagem: "https://susercontent.com", categoria: "eletronicos", linkAfiliado: "https://shopee.com.br" },
+            { id: 8, titulo: "Protetor de Porta do Carro Amortecedor Borracha Antirruído", precoOriginal: 21.98, precoOferta: 10.99, desconto: "-50%", imagem: "https://susercontent.com", categoria: "mais_vendidos", linkAfiliado: "https://shopee.com.br" },
+            { id: 9, titulo: "Bicicleta Bike Ergométrica Spinning Academia Fitness Ginástica", precoOriginal: 1586.17, precoOferta: 459.99, desconto: "-71%", imagem: "https://susercontent.com", categoria: "saude_fitness", linkAfiliado: "https://shopee.com.br" },
+            // === LOTE 2 ===
+            { 
+                id: 15, 
+                titulo: "Inox Torneira Prata/Preto Com Chuveiro Rotação 360 Graus", 
+                precoOriginal: 49.76, 
+                precoOferta: 25.88, 
+                desconto: "-48%", 
+                imagem: "https://susercontent.com", 
+                categoria: "casa_cozinha", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
             { 
                 id: 16, 
                 titulo: "Extensão Filtro De Linha Segurança 5 Tomadas Bivolt Disjuntor", 
                 precoOriginal: 60.35, 
                 precoOferta: 31.99, 
                 desconto: "-47%", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "eletronicos", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -141,7 +150,7 @@
                 precoOriginal: 35.78, 
                 precoOferta: 17.89, 
                 desconto: "-50%", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "eletronicos", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -151,7 +160,7 @@
                 precoOriginal: 99.83, 
                 precoOferta: 59.90, 
                 desconto: "-40%", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "mais_vendidos", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -161,7 +170,7 @@
                 precoOriginal: 54.24, 
                 precoOferta: 26.58, 
                 desconto: "-51%", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "ferramentas", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -171,7 +180,7 @@
                 precoOriginal: 36.57, 
                 precoOferta: 13.90, 
                 desconto: "-62%", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "casa_cozinha", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -181,7 +190,7 @@
                 precoOriginal: 90.75, 
                 precoOferta: 59.90, 
                 desconto: "-34%", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -191,7 +200,7 @@
                 precoOriginal: 89.39, 
                 precoOferta: 59.00, 
                 desconto: "-34%", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -201,7 +210,7 @@
                 precoOriginal: 149.90, 
                 precoOferta: 104.93, 
                 desconto: "TOP", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -211,7 +220,7 @@
                 precoOriginal: 120.00, 
                 precoOferta: 80.00, 
                 desconto: "OFERTA", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -221,7 +230,7 @@
                 precoOriginal: 45.88, 
                 precoOferta: 27.99, 
                 desconto: "-39%", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -231,7 +240,7 @@
                 precoOriginal: 69.90, 
                 precoOferta: 48.89, 
                 desconto: "TREINO", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -241,7 +250,7 @@
                 precoOriginal: 64.98, 
                 precoOferta: 51.99, 
                 desconto: "-20%", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -251,7 +260,7 @@
                 precoOriginal: 148.72, 
                 precoOferta: 69.90, 
                 desconto: "-53%", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -261,17 +270,18 @@
                 precoOriginal: 39.90, 
                 precoOferta: 24.90, 
                 desconto: "STREET", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
+            // === LOTE 3 ===
             { 
                 id: 30, 
                 titulo: "Blusa de Moletom Masculina Club Premium Flanelada Casaco", 
                 precoOriginal: 65.40, 
                 precoOferta: 39.90, 
                 desconto: "-39%", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -281,7 +291,7 @@
                 precoOriginal: 59.90, 
                 precoOferta: 39.60, 
                 desconto: "TREND", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -291,7 +301,7 @@
                 precoOriginal: 64.90, 
                 precoOferta: 33.15, 
                 desconto: "-49%", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -301,7 +311,7 @@
                 precoOriginal: 99.00, 
                 precoOferta: 69.79, 
                 desconto: "JEANS", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -311,7 +321,7 @@
                 precoOriginal: 59.90, 
                 precoOferta: 39.90, 
                 desconto: "CONJUNTO", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -321,18 +331,17 @@
                 precoOriginal: 78.90, 
                 precoOferta: 53.72, 
                 desconto: "-32%", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
-            // === LOTES DOS SEUS PRINTS: PARTE 3 ===
             { 
                 id: 36, 
                 titulo: "Blusa Frente Única de Bico Modal de Tricot Listrada", 
                 precoOriginal: 19.90, 
                 precoOferta: 17.91, 
                 desconto: "-10%", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -342,7 +351,7 @@
                 precoOriginal: 199.24, 
                 precoOferta: 99.62, 
                 desconto: "-50%", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -352,7 +361,7 @@
                 precoOriginal: 65.00, 
                 precoOferta: 49.90, 
                 desconto: "TOP", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -362,7 +371,7 @@
                 precoOriginal: 89.28, 
                 precoOferta: 62.50, 
                 desconto: "-30%", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -372,7 +381,7 @@
                 precoOriginal: 30.80, 
                 precoOferta: 16.94, 
                 desconto: "-45%", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -382,7 +391,7 @@
                 precoOriginal: 39.90, 
                 precoOferta: 19.90, 
                 desconto: "PROMO", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
@@ -392,26 +401,26 @@
                 precoOriginal: 49.90, 
                 precoOferta: 29.00, 
                 desconto: "OFERTA", 
-                imagem: "https://picsum.photos", 
+                imagem: "https://susercontent.com", 
                 categoria: "moda_beleza", 
                 linkAfiliado: "https://shopee.com.br" 
             },
 
             // === ABA: PET SHOP ===
-            { id: 43, titulo: "Cama Pet Nuvem Confortável Lavável Para Cães e Gatos", precoOriginal: 89.90, precoOferta: 49.90, desconto: "TOP", imagem: "https://picsum.photos", categoria: "pet_shop", linkAfiliado: "https://shopee.com.br" },
-            { id: 44, titulo: "Comedouro e Bebedouro Automático Fonte de Água Pet Inteligente", precoOriginal: 119.00, precoOferta: 59.90, desconto: "OFERTA", imagem: "https://picsum.photos", categoria: "pet_shop", linkAfiliado: "https://shopee.com.br" },
+            { id: 43, titulo: "Cama Pet Nuvem Confortável Lavável Para Cães e Gatos", precoOriginal: 89.90, precoOferta: 49.90, desconto: "TOP", imagem: "https://susercontent.com", categoria: "pet_shop", linkAfiliado: "https://shopee.com.br" },
+            { id: 44, titulo: "Comedouro e Bebedouro Automático Fonte de Água Pet Inteligente", precoOriginal: 119.00, precoOferta: 59.90, desconto: "OFERTA", imagem: "https://susercontent.com", categoria: "pet_shop", linkAfiliado: "https://shopee.com.br" },
 
             // === ABA: SAÚDE E FITNESS ===
-            { id: 45, titulo: "Tênis De Placa De Carbono Masculino Corrida Academia Profissional", precoOriginal: 139.00, precoOferta: 66.58, desconto: "-52%", imagem: "https://picsum.photos", categoria: "saude_fitness", linkAfiliado: "https://shopee.com.br" },
+            { id: 45, titulo: "Tênis De Placa De Carbono Masculino Corrida Academia Profissional", precoOriginal: 139.00, precoOferta: 66.58, desconto: "-52%", imagem: "https://susercontent.com", categoria: "saude_fitness", linkAfiliado: "https://shopee.com.br" },
 
             // === ABA: CURSOS DIGITAIS ===
-            { id: 46, titulo: "Curso Rápido de Tráfego Pago e Vendas Organizadas para Afiliados", precoOriginal: 197.00, precoOferta: 49.90, desconto: "ONLINE", imagem: "https://picsum.photos", categoria: "cursos", linkAfiliado: "https://shopee.com.br" },
+            { id: 46, titulo: "Curso Rápido de Tráfego Pago e Vendas Organizadas para Afiliados", precoOriginal: 197.00, precoOferta: 49.90, desconto: "ONLINE", imagem: "https://susercontent.com", categoria: "cursos", linkAfiliado: "https://shopee.com.br" },
 
             // === ABA: E-BOOKS ===
-            { id: 47, titulo: "E-book Premium: Guia Definitivo de Emagrecimento Saudável e Sucos Detox", precoOriginal: 49.90, precoOferta: 19.90, desconto: "DIGITAL", imagem: "https://picsum.photos", categoria: "ebooks", linkAfiliado: "https://shopee.com.br" },
+            { id: 47, titulo: "E-book Premium: Guia Definitivo de Emagrecimento Saudável e Sucos Detox", precoOriginal: 49.90, precoOferta: 19.90, desconto: "DIGITAL", imagem: "https://susercontent.com", categoria: "ebooks", linkAfiliado: "https://shopee.com.br" },
 
             // === ABA: BRINQUEDOS ===
-            { id: 48, titulo: "Pop It Eletrônico Antiestresse Brinquedo Infantil Game Luz", precoOriginal: 49.90, precoOferta: 34.90, desconto: "-30%", imagem: "https://picsum.photos", categoria: "brinquedos", linkAfiliado: "https://shopee.com.br" }
+            { id: 48, titulo: "Pop It Eletrônico Antiestresse Brinquedo Infantil Game Luz", precoOriginal: 49.90, precoOferta: 34.90, desconto: "-30%", imagem: "https://susercontent.com", categoria: "brinquedos", linkAfiliado: "https://shopee.com.br" }
         ];
 
         // === MOTOR JAVASCRIPT: LÓGICA E RENDERIZAÇÃO INSTANTÂNEA COORDENADA ===
@@ -450,33 +459,3 @@
 
             if (filtrados.length === 0) {
                 grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; color:#6b7280; padding:40px 0; font-size: 14px;">Nenhum produto encontrado nesta seção.</div>`;
-                return;
-            }
-
-            grid.innerHTML = filtrados.map(p => `
-                <div class="card-produto">
-                    <div class="img-container">
-                        <img src="${p.imagem}" alt="${p.titulo}">
-                        <span class="tag-desconto">${p.desconto}</span>
-                    </div>
-                    <h3 class="card-titulo">${p.titulo}</h3>
-                    <div class="precos">
-                        <span class="preco-antigo">R$ ${p.precoOriginal.toFixed(2).replace('.', ',')}</span>
-                        <span style="color:#60a5fa; font-weight:700; font-size:16px; display:block;">R$ ${p.precoOferta.toFixed(2).replace('.', ',')}</span>
-                    </div>
-                    <a href="${p.linkAfiliado}" target="_blank" class="btn-comprar">Ver Desconto</a>
-                </div>
-            `).join('');
-        }
-
-        // Executa o sistema de forma sincronizada e limpa após carregar o esqueleto HTML
-        window.onload = function() {
-            renderizarAbas();
-            renderizarProdutos();
-            document.getElementById('inputPesquisa').addEventListener('input', (e) => {
-                renderizarProdutos(e.target.value);
-            });
-        };
-    </script>
-</body>
-</html>
