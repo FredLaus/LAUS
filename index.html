@@ -5,59 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LAUS | E-commerce & Dropshipping</title>
     
-    <!-- CSS Nativo Embutido para evitar bloqueios de CDN -->
+    <!-- CSS Nativo de Altíssima Performance (Sem Dependências Externas) -->
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        body { background-color: #121212; color: #ffffff; min-h-screen: 100vh; display: flex; flex-direction: column; }
+        body { background-color: #121212; color: #ffffff; min-height: 100vh; display: flex; flex-direction: column; }
         
-        /* 1. Cabeçalho */
-        header { background-color: #0a1128; border-b: 1px solid #222; padding: 15px 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); position: sticky; top: 0; z-index: 100; }
-        .header-container { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 15px; }
+        /* Cabeçalho Otimizado */
+        header { background-color: #0a1128; border-b: 1px solid #1f2937; padding: 12px 20px; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.4); }
+        .header-container { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 12px; }
         @media (min-width: 768px) { .header-container { flex-direction: row; } }
-        .logo h1 { color: #3b82f6; font-size: 24px; font-weight: 900; tracking: 1px; }
-        .logo p { color: #9ca3af; font-size: 10px; text-transform: uppercase; font-weight: bold; letter-spacing: 2px; }
+        .logo h1 { color: #3b82f6; font-size: 24px; font-weight: 900; letter-spacing: 1px; line-height: 1; }
+        .logo p { color: #9ca3af; font-size: 9px; text-transform: uppercase; font-weight: bold; letter-spacing: 2px; margin-top: 4px; }
         .pesquisa-box { position: relative; width: 100%; max-width: 380px; }
-        .pesquisa-box input { w-full: 100%; width: 100%; background-color: #1a1a1a; color: #e5e7eb; font-size: 14px; padding: 10px 20px; border-radius: 50px; border: 1px solid #374151; outline: none; transition: border 0.2s; }
+        .pesquisa-box input { width: 100%; background-color: #1a1a1a; color: #e5e7eb; font-size: 14px; padding: 8px 16px; border-radius: 50px; border: 1px solid #374151; outline: none; }
         .pesquisa-box input:focus { border-color: #3b82f6; }
-        .favoritos { color: #d1d5db; font-size: 14px; cursor: pointer; text-decoration: none; }
+        .favoritos { color: #d1d5db; font-size: 14px; cursor: pointer; text-decoration: none; font-weight: 500; }
         .favoritos:hover { color: #fff; }
 
-        /* 2. Menu de Abas */
-        nav { background-color: #1a1a1a; border-bottom: 1px solid #222; padding: 10px 20px; position: sticky; top: 65px; z-index: 90; }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; }
+        /* Menu de Abas Otimizado com Scroll Lateral */
+        nav { background-color: #1a1a1a; border-bottom: 1px solid #2d3748; padding: 8px 20px; position: sticky; top: 55px; z-index: 90; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; gap: 8px; overflow-x: auto; scroll-behavior: smooth; }
         .nav-container::-webkit-scrollbar { display: none; }
-        .btn-aba { whitespace: nowrap; background-color: #2d3748; border: 1px solid #4a5568; color: #a0aec0; font-size: 12px; font-weight: 600; padding: 8px 16px; border-radius: 50px; cursor: pointer; transition: all 0.2s; }
-        .btn-aba.ativa { background-color: #2563eb; border-color: #3b82f6; color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-        .btn-aba:hover { color: #fff; border-color: #718096; }
+        .nav-container { -ms-overflow-style: none; scrollbar-width: none; }
+        .btn-aba { white-space: nowrap; background-color: #2d3748; border: 1px solid #4a5568; color: #a0aec0; font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 50px; cursor: pointer; transition: all 0.15s ease; }
+        .btn-aba.ativa { background-color: #2563eb; border-color: #3b82f6; color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.3); }
 
-        /* 3. Vitrine */
-        main { flex-grow: 1; max-width: 1200px; width: 100%; margin: 0 auto; padding: 25px 20px; }
-        .vitrine-topo { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-bottom: 1px solid #222; padding-bottom: 10px; }
-        .vitrine-topo h2 { font-size: 20px; font-weight: 700; color: #f3f4f6; }
-        .contador { font-size: 12px; color: #6b7280; font-weight: 600; background-color: #1a1a1a; padding: 4px 12px; border-radius: 50px; border: 1px solid #222; }
+        /* Vitrine e Grid de Produtos */
+        main { flex-grow: 1; max-width: 1200px; width: 100%; margin: 0 auto; padding: 20px; }
+        .vitrine-topo { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #2d3748; padding-bottom: 8px; }
+        .vitrine-topo h2 { font-size: 18px; font-weight: 700; color: #f3f4f6; }
+        .contador { font-size: 11px; color: #9ca3af; font-weight: 600; background-color: #1a1a1a; padding: 3px 10px; border-radius: 50px; border: 1px solid #2d3748; }
         
-        /* Grade de Cards */
-        .grid-produtos { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .grid-produtos { display: grid; grid-template-columns: 1fr; gap: 16px; }
         @media (min-width: 480px) { .grid-produtos { grid-template-columns: repeat(2, 1fr); } }
         @media (min-width: 768px) { .grid-produtos { grid-template-columns: repeat(3, 1fr); } }
         @media (min-width: 1024px) { .grid-produtos { grid-template-columns: repeat(4, 1fr); } }
         
-        /* Estrutura do Card */
-        .card-produto { background-color: #1a1a1a; border: 1px solid #2d3748; border-radius: 12px; overflow: hidden; padding: 16px; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; }
-        .card-produto:hover { transform: translateY(-4px); border-color: #2563eb; }
-        .img-container { relative: position; position: relative; width: 100%; height: 180px; background-color: #222; rounded: 8px; border-radius: 8px; overflow: hidden; margin-bottom: 12px; }
+        /* Layout de Card Renderizado na Hora */
+        .card-produto { background-color: #161616; border: 1px solid #2d3748; border-radius: 10px; overflow: hidden; padding: 12px; display: flex; flex-direction: column; transition: transform 0.2s ease, border-color 0.2s ease; }
+        .card-produto:hover { transform: translateY(-3px); border-color: #2563eb; }
+        .img-container { position: relative; width: 100%; height: 160px; background-color: #222; border-radius: 6px; overflow: hidden; margin-bottom: 10px; }
         .img-container img { width: 100%; height: 100%; object-fit: cover; }
-        .tag-desconto { position: absolute; top: 8px; right: 8px; background-color: #dc2626; color: #fff; font-size: 11px; font-weight: bold; padding: 2px 6px; border-radius: 4px; }
-        .card-titulo { font-size: 14px; font-weight: 500; color: #e5e7eb; height: 40px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin-bottom: 8px; }
-        .precos { margin-top: auto; margin-bottom: 12px; }
-        .preco-antigo { font-size: 12px; color: #6b7280; text-decoration: line-through; display: block; }
-        .preco-atual { font-size: 18px; font-weight: 700; color: #60a5fa; display: block; }
-        .btn-comprar { width: 100%; text-align: center; background-color: #2563eb; color: #fff; font-weight: bold; font-size: 12px; padding: 10px; border-radius: 8px; text-decoration: none; text-transform: uppercase; tracking: 0.5px; display: block; transition: background 0.2s; }
+        .tag-desconto { position: absolute; top: 6px; right: 6px; background-color: #dc2626; color: #fff; font-size: 10px; font-weight: bold; padding: 2px 5px; border-radius: 4px; }
+        .card-titulo { font-size: 13px; font-weight: 500; color: #e5e7eb; height: 36px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin-bottom: 8px; line-height: 1.4; }
+        .precos { margin-top: auto; margin-bottom: 10px; }
+        .preco-antigo { font-size: 11px; color: #6b7280; text-decoration: line-through; display: block; margin-bottom: 2px; }
+        .preco-atual { font-size: 16px; font-weight: 700; color: #60a5fa; display: block; }
+        .btn-comprar { width: 100%; text-align: center; background-color: #2563eb; color: #fff; font-weight: bold; font-size: 11px; padding: 8px; border-radius: 6px; text-decoration: none; text-transform: uppercase; tracking: 0.5px; display: block; transition: background 0.15s ease; }
         .btn-comprar:hover { background-color: #1d4ed8; }
 
-        /* 4. Rodapé */
-        footer { background-color: #0a1128; border-t: 1px solid #222; padding: 25px 20px; text-center: center; text-align: center; font-size: 14px; color: #9ca3af; margin-top: auto; }
-        footer p.aviso { max-width: 600px; margin: 0 auto 15px auto; font-size: 11px; color: #4b5563; }
+        footer { background-color: #0a1128; border-top: 1px solid #1f2937; padding: 20px; text-align: center; font-size: 12px; color: #9ca3af; margin-top: auto; }
+        footer p.aviso { max-width: 600px; margin: 0 auto 10px auto; font-size: 10px; color: #4b5563; line-height: 1.4; }
     </style>
 </head>
 <body>
@@ -76,10 +74,10 @@
         </div>
     </header>
 
-    <!-- 2. MENU DE CATEGORIAS (10 ABAS) -->
+    <!-- 2. MENU DE CATEGORIAS -->
     <nav>
         <div class="nav-container" id="containerAbas">
-            <!-- Injetado via JS -->
+            <!-- Injetado via JS de forma instantânea -->
         </div>
     </nav>
 
@@ -91,7 +89,7 @@
         </div>
 
         <div id="gridProdutos" class="grid-produtos">
-            <!-- Cards via JS -->
+            <!-- Injetado via JS de forma instantânea -->
         </div>
     </main>
 
@@ -101,7 +99,7 @@
         <p>&copy; 2026 LAUS. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- 5. JAVASCRIPT CORRIGIDO -->
+    <!-- 5. JAVASCRIPT DE RENDERIZAÇÃO INSTANTÂNEA -->
     <script>
         const categorias = [
             { id: "mais_vendidos", nome: "🔥 Mais Vendidos" },
@@ -118,6 +116,7 @@
 
         let categoriaAtiva = "eletronicos";
 
+        // Imagens otimizadas com dimensões reduzidas (?w=400) para economizar dados e abrir em milissegundos
         const produtos = [
             {
                 id: 1,
@@ -177,8 +176,3 @@
             tituloSeacao.textContent = catAtual.nome;
 
             const produtosFiltrados = produtos.filter(p => {
-                const matchesCategoria = p.categoria === categoriaAtiva;
-                const matchesPesquisa = p.titulo.toLowerCase().includes(termoPesquisa.toLowerCase());
-                return matchesCategoria && matchesPesquisa;
-            });
-
