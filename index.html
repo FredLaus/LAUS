@@ -22,7 +22,7 @@
         /* Esconde os seletores originais */
         .seletor-aba { display: none; }
         
-        /* Estilização das abas (Labels) */
+        /* Estilização visual das abas (Labels) */
         .btn-aba { white-space: nowrap; background-color: #2d3748; border: 1px solid #4a5568; color: #a0aec0; font-size: 12px; font-weight: 600; padding: 8px 16px; border-radius: 20px; cursor: pointer; transition: all 0.2s; display: inline-block; }
         .btn-aba:hover { color: #fff; border-color: #718096; }
 
@@ -48,7 +48,7 @@
 
         footer { background-color: #0a1128; padding: 20px; text-align: center; font-size: 12px; color: #9ca3af; margin-top: auto; border-top: 1px solid #1f2937; }
 
-        /* Mapeamento das 10 Seções via CSS Puro */
+        /* Controle das seções via CSS Puro */
         .bloco-categoria { display: none; }
 
         #tab-mais-vendidos:checked ~ nav .label-mais-vendidos,
@@ -83,9 +83,9 @@
 </head>
 <body>
 
-    <!-- Seletores Rápidos de Abas Ocultos (Inicia em Mais Vendidos) -->
-    <input type="radio" name="abas-loja" id="tab-mais-vendidos" class="seletor-aba" checked>
-    <input type="radio" name="abas-loja" id="tab-eletronicos" class="seletor-aba">
+    <!-- Seletores Rápidos de Abas -->
+    <input type="radio" name="abas-loja" id="tab-mais-vendidos" class="seletor-aba">
+    <input type="radio" name="abas-loja" id="tab-eletronicos" class="seletor-aba" checked>
     <input type="radio" name="abas-loja" id="tab-casa-cozinha" class="seletor-aba">
     <input type="radio" name="abas-loja" id="tab-moda-beleza" class="seletor-aba">
     <input type="radio" name="abas-loja" id="tab-pet-shop" class="seletor-aba">
@@ -103,7 +103,7 @@
         </div>
     </header>
 
-    <!-- 2. MENU DAS 10 ABAS INTEGRAL -->
+    <!-- 2. MENU DE CATEGORIAS -->
     <nav>
         <label for="tab-mais-vendidos" class="btn-aba label-mais-vendidos">🔥 Mais Vendidos</label>
         <label for="tab-eletronicos" class="btn-aba label-eletronicos">📱 Eletrônicos</label>
@@ -120,49 +120,50 @@
     <!-- 3. VITRINE DE PRODUTOS -->
     <main>
         
-        <!-- SEÇÃO: MAIS VENDIDOS (PRINT 1 & PRINT 2) -->
+        <!-- SEÇÃO: MAIS VENDIDOS -->
         <div id="cat-mais-vendidos" class="bloco-categoria">
             <div class="vitrine-topo"><h2>🔥 Mais Vendidos</h2></div>
             <div class="grid-produtos">
-                <!-- Protetor de Porta -->
+                <!-- Lava Roupas OMO Pro 5L -->
                 <div class="card-produto">
                     <div class="img-container">
-                        <img src="https://susercontent.com" alt="Protetor Porta">
-                        <span class="tag-desconto">-50%</span>
+                        <img src="https://susercontent.com" alt="OMO Pro">
+                        <span class="tag-desconto">-29%</span>
                     </div>
-                    <h3 class="card-titulo">Protetor de Porta do Carro - Amortecedor Borracha Antirruído</h3>
+                    <h3 class="card-titulo">OMO PRO Lava Roupas 5L Kit 2 Unidades 200 Lavagens Original</h3>
                     <div class="precos">
-                        <span class="preco-antigo">R$ 21,98</span>
-                        <span class="preco-atual">R$ 10,99</span>
+                        <span class="preco-antigo">R$ 98,17</span>
+                        <span class="preco-atual">R$ 69,70</span>
                     </div>
-                    <a href="https://s.shopee.com.br/2gBHc0un8W" target="_blank" class="btn-comprar">Ver Desconto</a>
+                    <a href="https://shopee.com.br" target="_blank" class="btn-comprar">Ver Desconto</a>
                 </div>
 
-                <!-- Novo Guarda Chuva -->
+                <!-- Capas de Almofada Natal -->
                 <div class="card-produto">
                     <div class="img-container">
-                        <img src="https://susercontent.com" alt="Guarda Chuva">
-                        <span class="tag-desconto">-50%</span>
+                        <img src="https://susercontent.com" alt="Almofadas Natal">
+                        <span class="tag-desconto">OFERTA</span>
                     </div>
-                    <h3 class="card-titulo">Novo Guarda Chuva Automático Alta Resistência a Chuvas</h3>
+                    <h3 class="card-titulo">Kit 4 Capas de Almofadas Decorativas Natalinas Estampadas</h3>
                     <div class="precos">
-                        <span class="preco-antigo">R$ 53,98</span>
-                        <span class="preco-atual">R$ 26,99</span>
+                        <span class="preco-antigo">R$ 35,00</span>
+                        <span class="preco-atual">R$ 24,90</span>
                     </div>
-                    <a href="https://s.shopee.com.br/5fotBe6ntx" target="_blank" class="btn-comprar">Ver Desconto</a>
-                </div>
-
-                <!-- Perfume Cedar Fine -->
-                <div class="card-produto">
-                    <div class="img-container">
-                        <img src="https://susercontent.com" alt="Perfume">
-                        <span class="tag-desconto">-40%</span>
-                    </div>
-                    <h3 class="card-titulo">Perfume Cedar Fine - Le botanic - Alta Fixação Premium</h3>
-                    <div class="precos">
-                        <span class="preco-antigo">R$ 99,83</span>
-                        <span class="preco-atual">R$ 59,90</span>
-                    </div>
-                    <a href="https://s.shopee.com.br/1qcAcd7Wlf" target="_blank" class="btn-comprar">Ver Desconto</a>
+                    <a href="https://shopee.com.br" target="_blank" class="btn-comprar">Ver Desconto</a>
                 </div>
             </div>
+        </div>
+
+        <!-- SEÇÃO: ELETRÔNICOS -->
+        <div id="cat-eletronicos" class="bloco-categoria">
+            <div class="vitrine-topo"><h2>📱 Eletrônicos</h2></div>
+            <div class="grid-produtos">
+                <!-- Carregador Mini 10000mAh -->
+                <div class="card-produto">
+                    <div class="img-container">
+                        <img src="https://susercontent.com" alt="Power Bank Mini">
+                        <span class="tag-desconto">-45%</span>
+                    </div>
+                    <h3 class="card-titulo">Carregador Portátil Mini Power Bank 10000mAh Com Saídas Embutidas</h3>
+                    <div class="precos">
+                        <span class="preco-antigo">R$ 58,00</span>
