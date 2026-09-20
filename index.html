@@ -22,7 +22,7 @@
         /* Esconde os seletores originais */
         .seletor-aba { display: none; }
         
-        /* Estilização visual das abas (Labels) */
+        /* Estilização das abas (Labels) */
         .btn-aba { white-space: nowrap; background-color: #2d3748; border: 1px solid #4a5568; color: #a0aec0; font-size: 12px; font-weight: 600; padding: 8px 16px; border-radius: 20px; cursor: pointer; transition: all 0.2s; display: inline-block; }
         .btn-aba:hover { color: #fff; border-color: #718096; }
 
@@ -48,7 +48,7 @@
 
         footer { background-color: #0a1128; padding: 20px; text-align: center; font-size: 12px; color: #9ca3af; margin-top: auto; border-top: 1px solid #1f2937; }
 
-        /* Controle das seções via CSS Puro */
+        /* Mapeamento das 10 Seções via CSS Puro */
         .bloco-categoria { display: none; }
 
         #tab-mais-vendidos:checked ~ nav .label-mais-vendidos,
@@ -83,9 +83,9 @@
 </head>
 <body>
 
-    <!-- Seletores Rápidos de Abas -->
-    <input type="radio" name="abas-loja" id="tab-mais-vendidos" class="seletor-aba">
-    <input type="radio" name="abas-loja" id="tab-eletronicos" class="seletor-aba" checked>
+    <!-- Seletores Rápidos de Abas Ocultos -->
+    <input type="radio" name="abas-loja" id="tab-mais-vendidos" class="seletor-aba" checked>
+    <input type="radio" name="abas-loja" id="tab-eletronicos" class="seletor-aba">
     <input type="radio" name="abas-loja" id="tab-casa-cozinha" class="seletor-aba">
     <input type="radio" name="abas-loja" id="tab-moda-beleza" class="seletor-aba">
     <input type="radio" name="abas-loja" id="tab-pet-shop" class="seletor-aba">
@@ -103,7 +103,7 @@
         </div>
     </header>
 
-    <!-- 2. MENU DE CATEGORIAS -->
+    <!-- 2. MENU DAS 10 ABAS RETORNADO INTEGRAL -->
     <nav>
         <label for="tab-mais-vendidos" class="btn-aba label-mais-vendidos">🔥 Mais Vendidos</label>
         <label for="tab-eletronicos" class="btn-aba label-eletronicos">📱 Eletrônicos</label>
@@ -117,53 +117,322 @@
         <label for="tab-brinquedos" class="btn-aba label-brinquedos">🧸 Brinquedos</label>
     </nav>
 
-    <!-- 3. VITRINE DE PRODUTOS -->
+    <!-- 3. VITRINE DE PRODUTOS (PARTE 1) -->
     <main>
         
-        <!-- SEÇÃO: MAIS VENDIDOS -->
+        <!-- SEÇÃO: MAIS VENDidos -->
         <div id="cat-mais-vendidos" class="bloco-categoria">
             <div class="vitrine-topo"><h2>🔥 Mais Vendidos</h2></div>
             <div class="grid-produtos">
-                <!-- Lava Roupas OMO Pro 5L -->
+                <!-- Livro Mulheres com Deus -->
                 <div class="card-produto">
                     <div class="img-container">
-                        <img src="https://susercontent.com" alt="OMO Pro">
-                        <span class="tag-desconto">-29%</span>
+                        <img src="https://down-zl-br.img.susercontent.com/br-11134207-81z1k-mg96j0hfs0ec19.webp" alt="Livro Mulheres com Deus">
+                        <span class="tag-desconto">OFERTA</span>
                     </div>
-                    <h3 class="card-titulo">OMO PRO Lava Roupas 5L Kit 2 Unidades 200 Lavagens Original</h3>
+                    <h3 class="card-titulo">Mulheres com Deus - 365 Dias de Fé - Devocional Diário</h3>
                     <div class="precos">
-                        <span class="preco-antigo">R$ 98,17</span>
-                        <span class="preco-atual">R$ 69,70</span>
+                        <span class="preco-antigo">R$ 35,88</span>
+                        <span class="preco-atual">R$ 17,94</span>
+                    </div>
+                    <a href="https://s.shopee.com.br/1qcAcd7Wlf" target="_blank" class="btn-comprar">Ver Desconto</a>
+                </div>
+                <!-- Protetor de Porta do Carro -->
+                <div class="card-produto">
+                    <div class="img-container">
+                        <img src="https://susercontent.com" alt="Protetor Porta">
+                        <span class="tag-desconto">-50%</span>
+                    </div>
+                    <h3 class="card-titulo">Protetor de Porta do Carro - Amortecedor Borracha Antirruído</h3>
+                    <div class="precos">
+                        <span class="preco-antigo">R$ 21,98</span>
+                        <span class="preco-atual">R$ 10,99</span>
+                    </div>
+                    <a href="https://s.shopee.com.br/2gBHc0un8W" target="_blank" class="btn-comprar">Ver Desconto</a>
+                </div>
+                <!-- Spray Vedatudo -->
+                <div class="card-produto">
+                    <div class="img-container">
+                        <img src="https://susercontent.com" alt="Spray Vedatudo">
+                        <span class="tag-desconto">-51%</span>
+                    </div>
+                    <h3 class="card-titulo">Spray Vedatudo 400ml Impermeabilizante Emborrachado Vedação</h3>
+                    <div class="precos">
+                        <span class="preco-antigo">R$ 54,24</span>
+                        <span class="preco-atual">R$ 26,58</span>
+                    </div>
+                    <a href="https://s.shopee.com.br/8pluxV7HHB" target="_blank" class="btn-comprar">Ver Desconto</a>
+                </div>
+            </div>
+        <!-- SEÇÃO: FERRAMENTAS -->
+        <div id="cat-ferramentas" class="bloco-categoria">
+            <div class="vitrine-topo"><h2>🛠️ Ferramentas</h2></div>
+            <div class="grid-produtos">
+                <!-- Jogo de Chaves Maleta -->
+                <div class="card-produto">
+                    <div class="img-container">
+                        <img src="https://susercontent.com" alt="Maleta de Chaves">
+                        <span class="tag-desconto">-67%</span>
+                    </div>
+                    <h3 class="card-titulo">40 Peças / 46 Peças Jogo De Chave Catraca Caixa Oficina</h3>
+                    <div class="precos">
+                        <span class="preco-antigo">R$ 87,84</span>
+                        <span class="preco-atual">R$ 28,99</span>
                     </div>
                     <a href="https://shopee.com.br" target="_blank" class="btn-comprar">Ver Desconto</a>
                 </div>
 
-                <!-- Capas de Almofada Natal -->
+                <!-- Chave de Impacto -->
                 <div class="card-produto">
                     <div class="img-container">
-                        <img src="https://susercontent.com" alt="Almofadas Natal">
+                        <img src="https://susercontent.com" alt="Chave de Impacto">
+                        <span class="tag-desconto">-42%</span>
+                    </div>
+                    <h3 class="card-titulo">Chave De Impacto Brushless 500Nm Sem Fio Com 2 Baterias</h3>
+                    <div class="precos">
+                        <span class="preco-antigo">R$ 310,32</span>
+                        <span class="preco-atual">R$ 179,99</span>
+                    </div>
+                    <a href="https://shopee.com.br" target="_blank" class="btn-comprar">Ver Desconto</a>
+                </div>
+
+                <!-- Pistola Massageadora -->
+                <div class="card-produto">
+                    <div class="img-container">
+                        <img src="https://susercontent.com" alt="Pistola Massageadora">
                         <span class="tag-desconto">OFERTA</span>
                     </div>
-                    <h3 class="card-titulo">Kit 4 Capas de Almofadas Decorativas Natalinas Estampadas</h3>
+                    <h3 class="card-titulo">Pistola de Massagem Muscular Portátil Elétrica Fisioterapia</h3>
                     <div class="precos">
-                        <span class="preco-antigo">R$ 35,00</span>
-                        <span class="preco-atual">R$ 24,90</span>
+                        <span class="preco-antigo">R$ 49,90</span>
+                        <span class="preco-atual">R$ 28,16</span>
                     </div>
                     <a href="https://shopee.com.br" target="_blank" class="btn-comprar">Ver Desconto</a>
                 </div>
             </div>
         </div>
 
-        <!-- SEÇÃO: ELETRÔNICOS -->
-        <div id="cat-eletronicos" class="bloco-categoria">
-            <div class="vitrine-topo"><h2>📱 Eletrônicos</h2></div>
+        <!-- SEÇÃO: MODA E BELEZA (MODA MASCULINA) -->
+        <div id="cat-moda-beleza" class="bloco-categoria">
+            <div class="vitrine-topo"><h2>💅 Moda Masculina e Beleza</h2></div>
             <div class="grid-produtos">
-                <!-- Carregador Mini 10000mAh -->
+                <!-- Camiseta Insider -->
                 <div class="card-produto">
                     <div class="img-container">
-                        <img src="https://susercontent.com" alt="Power Bank Mini">
-                        <span class="tag-desconto">-45%</span>
+                        <img src="https://susercontent.com" alt="Insider">
+                        <span class="tag-desconto">-54%</span>
                     </div>
-                    <h3 class="card-titulo">Carregador Portátil Mini Power Bank 10000mAh Com Saídas Embutidas</h3>
+                    <h3 class="card-titulo">Daily T-shirt Insider Antisuor Tecnológica Confort Pro</h3>
                     <div class="precos">
-                        <span class="preco-antigo">R$ 58,00</span>
+                        <span class="preco-antigo">R$ 139,13</span>
+                        <span class="preco-atual">R$ 64,00</span>
+                    </div>
+                    <a href="https://shopee.com.br" target="_blank" class="btn-comprar">Ver Desconto</a>
+                </div>
+
+                <!-- Camisa Polo Pink -->
+                <div class="card-produto">
+                    <div class="img-container">
+                        <img src="https://susercontent.com" alt="Polo Pink">
+                        <span class="tag-desconto">-34%</span>
+                    </div>
+                    <h3 class="card-titulo">Camisa Polo Powerline Pink Unissex em Piquet Casual</h3>
+                    <div class="precos">
+                        <span class="preco-antigo">R$ 90,75</span>
+                        <span class="preco-atual">R$ 59,90</span>
+                    </div>
+                    <a href="https://shopee.com.br" target="_blank" class="btn-comprar">Ver Desconto</a>
+                </div>
+
+                <!-- Calça Jeans Destroyed -->
+                <div class="card-produto">
+                    <div class="img-container">
+                        <img src="https://susercontent.com" alt="Jeans Destroyed">
+                        <span class="tag-desconto">-34%</span>
+                    </div>
+                    <h3 class="card-titulo">Calça Jogger Masculina Importada Grife Jeans Destroyed</h3>
+                    <div class="precos">
+                        <span class="preco-antigo">R$ 89,39</span>
+                        <span class="preco-atual">R$ 59,00</span>
+                    </div>
+                    <a href="https://shopee.com.br" target="_blank" class="btn-comprar">Ver Desconto</a>
+                </div>
+
+                <!-- Moletom Raw -->
+                <div class="card-produto">
+                    <div class="img-container">
+                        <img src="https://susercontent.com" alt="Moletom Raw">
+                        <span class="tag-desconto">TOP</span>
+                    </div>
+                    <h3 class="card-titulo">Moletom Com Zíper e Capuz Raw Company Cursive</h3>
+                    <div class="precos">
+                        <span class="preco-antigo">R$ 149,90</span>
+                        <span class="preco-atual">R$ 104,93</span>
+                    </div>
+                    <a href="https://shopee.com.br" target="_blank" class="btn-comprar">Ver Desconto</a>
+                </div>
+
+                <!-- Corta Vento -->
+                <div class="card-produto">
+                    <div class="img-container">
+                        <img src="https://susercontent.com" alt="Corta Vento">
+                        <span class="tag-desconto">OFERTA</span>
+                    </div>
+                    <h3 class="card-titulo">Jaqueta Corta Vento Masculina Estilo Motociclista Sport</h3>
+                    <div class="precos">
+                        <span class="preco-antigo">R$ 120,00</span>
+                        <span class="preco-atual">R$ 80,00</span>
+                    </div>
+                    <a href="https://shopee.com.br" target="_blank" class="btn-comprar">Ver Desconto</a>
+                </div>
+
+                <!-- Camiseta Americana -->
+                <div class="card-produto">
+                    <div class="img-container">
+                        <img src="https://susercontent.com" alt="Camiseta Americana">
+                        <span class="tag-desconto">-39%</span>
+                    </div>
+                    <h3 class="card-titulo">Camiseta Canelada Americana Blusa Slim Fit Ribbed</h3>
+                    <div class="precos">
+                        <span class="preco-antigo">R$ 45,88</span>
+                        <span class="preco-atual">R$ 27,99</span>
+                    </div>
+                    <a href="https://shopee.com.br" target="_blank" class="btn-comprar">Ver Desconto</a>
+                </div>
+
+                <!-- Calça Jogger Academia -->
+                <div class="card-produto">
+                    <div class="img-container">
+                        <img src="https://susercontent.com" alt="Jogger Lisa">
+                        <span class="tag-desconto">FITNESS</span>
+                    </div>
+                    <h3 class="card-titulo">Calça Jogger Lisa Masculina Esportiva Para Treinos</h3>
+                    <div class="precos">
+                        <span class="preco-antigo">R$ 69,90</span>
+                        <span class="preco-atual">R$ 48,89</span>
+                    </div>
+                    <a href="https://shopee.com.br" target="_blank" class="btn-comprar">Ver Desconto</a>
+                </div>
+
+                <!-- Jogger Skinny Lycra -->
+                <div class="card-produto">
+                    <div class="img-container">
+                        <img src="https://susercontent.com" alt="Jogger Skinny">
+                        <span class="tag-desconto">-20%</span>
+                    </div>
+                    <h3 class="card-titulo">Calça Jogger Skinny Premium Com Lycra e Rasgados</h3>
+                    <div class="precos">
+                        <span class="preco-antigo">R$ 64,98</span>
+                        <span class="preco-atual">R$ 51,99</span>
+                    </div>
+                    <a href="https://shopee.com.br" target="_blank" class="btn-comprar">Ver Desconto</a>
+                </div>
+
+                <!-- Jaqueta Puffer -->
+                <div class="card-produto">
+                    <div class="img-container">
+                        <img src="https://susercontent.com" alt="Jaqueta Puffer">
+                        <span class="tag-desconto">-53%</span>
+                    </div>
+                    <h3 class="card-titulo">Jaqueta Puffer Bobojaco Inverno Nylon Forrada Capuz</h3>
+                    <div class="precos">
+                        <span class="preco-antigo">R$ 148,72</span>
+                        <span class="preco-atual">R$ 69,90</span>
+                    </div>
+        <!-- SEÇÃO: PET SHOP -->
+        <div id="cat-pet-shop" class="bloco-categoria">
+            <div class="vitrine-topo"><h2>🐶 Pet Shop</h2></div>
+            <div class="grid-produtos">
+                <div class="card-produto">
+                    <div class="img-container">
+                        <img src="https://susercontent.com" alt="Produto Pet 1">
+                        <span class="tag-desconto">TOP VENDAS</span>
+                    </div>
+                    <h3 class="card-titulo">Cama Pet Nuvem Confortável Lavável Para Cães e Gatos</h3>
+                    <div class="precos">
+                        <span class="preco-antigo">R$ 89,90</span>
+                        <span class="preco-atual">R$ 49,90</span>
+                    </div>
+                    <a href="https://shopee.com.br" target="_blank" class="btn-comprar">Ver Desconto</a>
+                </div>
+                <div class="card-produto">
+                    <div class="img-container">
+                        <img src="https://susercontent.com" alt="Produto Pet 2">
+                        <span class="tag-desconto">OFERTA</span>
+                    </div>
+                    <h3 class="card-titulo">Comedouro e Bebedouro Automático Fonte de Água Pet Inteligente</h3>
+                    <div class="precos">
+                        <span class="preco-antigo">R$ 119,00</span>
+                        <span class="preco-atual">R$ 59,90</span>
+                    </div>
+                    <a href="https://shopee.com.br" target="_blank" class="btn-comprar">Ver Desconto</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEÇÃO: CURSOS DIGITAIS -->
+        <div id="cat-cursos" class="bloco-categoria">
+            <div class="vitrine-topo"><h2>🎓 Cursos Digitais</h2></div>
+            <div class="grid-produtos">
+                <div class="card-produto">
+                    <div class="img-container">
+                        <img src="https://susercontent.com" alt="Curso Afiliado">
+                        <span class="tag-desconto">100% ONLINE</span>
+                    </div>
+                    <h3 class="card-titulo">Curso Rápido de Tráfego Pago e Vendas Orgânicas para Afiliados</h3>
+                    <div class="precos">
+                        <span class="preco-antigo">R$ 197,00</span>
+                        <span class="preco-atual">R$ 49,90</span>
+                    </div>
+                    <a href="https://shopee.com.br" target="_blank" class="btn-comprar">Ver Desconto</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEÇÃO: E-BOOKS -->
+        <div id="cat-ebooks" class="bloco-categoria">
+            <div class="vitrine-topo"><h2>📚 E-books</h2></div>
+            <div class="grid-produtos">
+                <div class="card-produto">
+                    <div class="img-container">
+                        <img src="https://susercontent.com" alt="Guia Digital">
+                        <span class="tag-desconto">DIGITAL</span>
+                    </div>
+                    <h3 class="card-titulo">E-book Premium: Guia Definitivo de Emagrecimento e Receitas Fit</h3>
+                    <div class="precos">
+                        <span class="preco-antigo">R$ 49,90</span>
+                        <span class="preco-atual">R$ 19,90</span>
+                    </div>
+                    <a href="https://shopee.com.br" target="_blank" class="btn-comprar">Ver Desconto</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEÇÃO: BRINQUEDOS -->
+        <div id="cat-brinquedos" class="bloco-categoria">
+            <div class="vitrine-topo"><h2>🧸 Brinquedos</h2></div>
+            <div class="grid-produtos">
+                <div class="card-produto">
+                    <div class="img-container">
+                        <img src="https://susercontent.com" alt="Brinquedo Educativo">
+                        <span class="tag-desconto">-30%</span>
+                    </div>
+                    <h3 class="card-titulo">Pop It Eletrônico Antiestresse Brinquedo Educativo Infantil</h3>
+                    <div class="precos">
+                        <span class="preco-antigo">R$ 49,90</span>
+                        <span class="preco-atual">R$ 34,90</span>
+                    </div>
+                    <a href="https://shopee.com.br" target="_blank" class="btn-comprar">Ver Desconto</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 4. RODAPÉ DO SITE -->
+    <footer>
+        <p>&copy; 2026 LAUS. Todos os direitos reservados. Todas as compras são processadas em ambiente seguro do parceiro.</p>
+    </footer>
+
+</body>
+</html>
