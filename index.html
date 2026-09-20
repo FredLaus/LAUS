@@ -57,13 +57,13 @@
         </div>
     </header>
 
-    <!-- 2. MENU DE CATEGORIAS (10 ABAS RETORNADAS) -->
+    <!-- 2. MENU DE CATEGORIAS (10 ABAS COMPLETAS) -->
     <nav id="containerAbas"></nav>
 
     <!-- 3. VITRINE -->
     <main>
         <div class="vitrine-topo">
-            <h2 id="tituloCategoria">Carregando...</h2>
+            <h2 id="tituloCategoria">Catálogo de Ofertas</h2>
             <span id="contadorProdutos" class="contador">0 itens</span>
         </div>
         <div id="gridProdutos" class="grid-produtos"></div>
@@ -74,8 +74,9 @@
         <p>&copy; 2026 LAUS. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- 5. MOTOR JAVASCRIPT CORRIGIDO E SEGURO -->
+    <!-- 5. MOTOR JAVASCRIPT À PROVA DE FALHAS -->
     <script>
+        // Lista oficial e completa com as 10 categorias
         const categorias = [
             { id: "mais_vendidos", nome: "🔥 Mais Vendidos" },
             { id: "eletronicos", nome: "📱 Eletrônicos" },
@@ -89,9 +90,10 @@
             { id: "brinquedos", nome: "🧸 Brinquedos" }
         ];
 
+        // Define a categoria que carrega aberta por padrão
         let categoriaAtiva = "eletronicos";
 
-        // Substitua os links das imagens abaixo pelos links dos seus produtos reais
+        // Banco de dados seguro com produtos pré-carregados para teste
         const produtos = [
             {
                 id: 1,
@@ -115,7 +117,7 @@
             },
             {
                 id: 3,
-                titulo: "Mini Processador de Alimentos Elétrico Portátil USB recarregável",
+                titulo: "Mini Processador de Alimentos Elétrico Portátil USB Recarregável",
                 precoOriginal: 89.90,
                 precoOferta: 39.90,
                 desconto: "-55%",
@@ -199,5 +201,3 @@
             grid.innerHTML = htmlProdutos;
         }
 
-        // Executa com segurança máxima garantindo que a tela já existe
-        window.onload = function() {
