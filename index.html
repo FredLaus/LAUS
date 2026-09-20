@@ -74,9 +74,8 @@
         <p>&copy; 2026 LAUS. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- 5. MOTOR JAVASCRIPT DE RENDERIZAÇÃO INSTANTÂNEA -->
+    <!-- 5. MOTOR JAVASCRIPT CORRIGIDO E SEGURO -->
     <script>
-        // Lista completa com as 10 abas solicitadas
         const categorias = [
             { id: "mais_vendidos", nome: "🔥 Mais Vendidos" },
             { id: "eletronicos", nome: "📱 Eletrônicos" },
@@ -90,10 +89,9 @@
             { id: "brinquedos", nome: "🧸 Brinquedos" }
         ];
 
-        // Configurado para abrir direto em Eletrônicos, onde já existem itens de teste cadastrados
         let categoriaAtiva = "eletronicos";
 
-        // Base de dados inicial com exemplos distribuídos pelas abas para teste de cliques
+        // Substitua os links das imagens abaixo pelos links dos seus produtos reais
         const produtos = [
             {
                 id: 1,
@@ -198,203 +196,8 @@
                     </div>
                 `;
             }
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAUS | E-commerce & Dropshipping</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
-        body { background-color: #121212; color: #ffffff; min-height: 100vh; display: flex; flex-direction: column; }
-        
-        /* Cabeçalho */
-        header { background-color: #0a1128; border-b: 1px solid #1f2937; padding: 15px; text-align: center; }
-        .logo h1 { color: #3b82f6; font-size: 24px; font-weight: 900; }
-        .logo p { color: #9ca3af; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; }
-        
-        /* Menu de 10 Abas com rolagem lateral fluida */
-        nav { background-color: #1a1a1a; padding: 12px; overflow-x: auto; display: flex; gap: 8px; justify-content: flex-start; }
-        @media (min-width: 1024px) { nav { justify-content: center; } }
-        nav::-webkit-scrollbar { display: none; }
-        nav { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        .btn-aba { white-space: nowrap; background-color: #2d3748; border: 1px solid #4a5568; color: #a0aec0; font-size: 12px; font-weight: 600; padding: 8px 16px; border-radius: 20px; cursor: pointer; transition: all 0.2s; }
-        .btn-aba.ativa { background-color: #2563eb; border-color: #3b82f6; color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
-
-        /* Vitrine */
-        main { flex-grow: 1; max-width: 1200px; width: 100%; margin: 0 auto; padding: 20px; }
-        .vitrine-topo { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-b: 1px solid #2d3748; padding-bottom: 10px; }
-        .vitrine-topo h2 { font-size: 18px; font-weight: 700; }
-        .contador { font-size: 12px; color: #9ca3af; background-color: #1a1a1a; padding: 4px 12px; border-radius: 20px; border: 1px solid #2d3748; }
-        
-        /* Grade Otimizada */
-        .grid-produtos { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
-        .card-produto { background-color: #161616; border: 1px solid #2d3748; border-radius: 10px; padding: 15px; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; }
-        .card-produto:hover { transform: translateY(-4px); border-color: #2563eb; }
-        
-        .img-container { width: 100%; height: 160px; background-color: #222; border-radius: 6px; overflow: hidden; margin-bottom: 10px; position: relative; }
-        .img-container img { width: 100%; height: 100%; object-fit: cover; }
-        .tag-desconto { position: absolute; top: 5px; right: 5px; background-color: #dc2626; color: #fff; font-size: 10px; font-weight: bold; padding: 2px 5px; border-radius: 4px; }
-        
-        .card-titulo { font-size: 14px; color: #e5e7eb; margin-bottom: 8px; min-height: 38px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.4; }
-        .precos { margin-bottom: 12px; }
-        .preco-antigo { font-size: 11px; color: #6b7280; text-decoration: line-through; display: block; }
-        .preco-atual { font-size: 16px; font-weight: 700; color: #60a5fa; display: block; }
-        .btn-comprar { width: 100%; text-align: center; background-color: #2563eb; color: #fff; font-weight: bold; font-size: 11px; padding: 9px; border-radius: 6px; text-decoration: none; display: block; text-transform: uppercase; tracking: 0.5px; }
-        .btn-comprar:hover { background-color: #1d4ed8; }
-
-        footer { background-color: #0a1128; padding: 20px; text-align: center; font-size: 12px; color: #9ca3af; margin-top: auto; border-top: 1px solid #1f2937; }
-    </style>
-</head>
-<body>
-
-    <!-- 1. CABEÇALHO -->
-    <header>
-        <div class="logo">
-            <h1>LAUS</h1>
-            <p>E-commerce & Dropshipping</p>
-        </div>
-    </header>
-
-    <!-- 2. MENU DE CATEGORIAS (10 ABAS RETORNADAS) -->
-    <nav id="containerAbas"></nav>
-
-    <!-- 3. VITRINE -->
-    <main>
-        <div class="vitrine-topo">
-            <h2 id="tituloCategoria">Carregando...</h2>
-            <span id="contadorProdutos" class="contador">0 itens</span>
-        </div>
-        <div id="gridProdutos" class="grid-produtos"></div>
-    </main>
-
-    <!-- 4. RODAPÉ -->
-    <footer>
-        <p>&copy; 2026 LAUS. Todos os direitos reservados.</p>
-    </footer>
-
-    <!-- 5. MOTOR JAVASCRIPT DE RENDERIZAÇÃO INSTANTÂNEA -->
-    <script>
-        // Lista completa com as 10 abas solicitadas
-        const categorias = [
-            { id: "mais_vendidos", nome: "🔥 Mais Vendidos" },
-            { id: "eletronicos", nome: "📱 Eletrônicos" },
-            { id: "casa_cozinha", nome: "🏠 Casa e Cozinha" },
-            { id: "moda_beleza", nome: "💅 Moda e Beleza" },
-            { id: "pet_shop", nome: "🐶 Pet Shop" },
-            { id: "saude_fitness", nome: "🎯 Saúde e Fitness" },
-            { id: "cursos", nome: "🎓 Cursos Digitais" },
-            { id: "ebooks", nome: "📚 E-books" },
-            { id: "ferramentas", nome: "🛠️ Ferramentas" },
-            { id: "brinquedos", nome: "🧸 Brinquedos" }
-        ];
-
-        // Configurado para abrir direto em Eletrônicos, onde já existem itens de teste cadastrados
-        let categoriaAtiva = "eletronicos";
-
-        // Base de dados inicial com exemplos distribuídos pelas abas para teste de cliques
-        const produtos = [
-            {
-                id: 1,
-                titulo: "Fone de Ouvido Bluetooth Sem Fio TWS - Antirruído Pro",
-                precoOriginal: 199.90,
-                precoOferta: 99.90,
-                desconto: "-50%",
-                imagem: "https://unsplash.com",
-                categoria: "eletronicos",
-                linkAfiliado: "#"
-            },
-            {
-                id: 2,
-                titulo: "Relógio Smartwatch Digital Esportivo Inteligente Bluetooth",
-                precoOriginal: 249.90,
-                precoOferta: 129.90,
-                desconto: "-48%",
-                imagem: "https://unsplash.com",
-                categoria: "eletronicos",
-                linkAfiliado: "#"
-            },
-            {
-                id: 3,
-                titulo: "Mini Processador de Alimentos Elétrico Portátil USB recarregável",
-                precoOriginal: 89.90,
-                precoOferta: 39.90,
-                desconto: "-55%",
-                imagem: "https://unsplash.com",
-                categoria: "casa_cozinha",
-                linkAfiliado: "#"
-            },
-            {
-                id: 4,
-                titulo: "E-book Premium: Guia de Receitas Práticas para AirFryer",
-                precoOriginal: 49.90,
-                precoOferta: 19.90,
-                desconto: "-60%",
-                imagem: "https://unsplash.com",
-                categoria: "ebooks",
-                linkAfiliado: "#"
-            }
-        ];
-
-        function renderizarAbas() {
-            const container = document.getElementById('containerAbas');
-            if(!container) return;
-            
-            let html = "";
-            for (let i = 0; i < categorias.length; i++) {
-                const cat = categorias[i];
-                const classeAtiva = cat.id === categoriaAtiva ? 'ativa' : '';
-                html += `<button onclick="mudarCategoria('${cat.id}')" class="btn-aba ${classeAtiva}">${cat.nome}</button>`;
-            }
-            container.innerHTML = html;
+            grid.innerHTML = htmlProdutos;
         }
 
-        function mudarCategoria(idCategoria) {
-            categoriaAtiva = idCategoria;
-            renderizarAbas();
-            renderizarProdutos();
-        }
-
-        function renderizarProdutos() {
-            const grid = document.getElementById('gridProdutos');
-            const tituloSeacao = document.getElementById('tituloCategoria');
-            const contador = document.getElementById('contadorProdutos');
-            
-            if(!grid || !tituloSeacao || !contador) return;
-
-            const catAtual = categorias.find(c => c.id === categoriaAtiva);
-            tituloSeacao.textContent = catAtual ? catAtual.nome : "";
-
-            const filtrados = [];
-            for (let i = 0; i < produtos.length; i++) {
-                if (produtos[i].categoria === categoriaAtiva) {
-                    filtrados.push(produtos[i]);
-                }
-            }
-
-            contador.textContent = filtrados.length + " encontrados";
-
-            if (filtrados.length === 0) {
-                grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: #6b7280; padding: 50px 0; font-size: 14px;">Nenhum item cadastrado nesta categoria ainda.</div>`;
-                return;
-            }
-
-            let htmlProdutos = "";
-            for (let i = 0; i < filtrados.length; i++) {
-                const p = filtrados[i];
-                htmlProdutos += `
-                    <div class="card-produto">
-                        <div class="img-container">
-                            <img src="${p.imagem}" alt="${p.titulo}">
-                            <span class="tag-desconto">${p.desconto}</span>
-                        </div>
-                        <h3 class="card-titulo">${p.titulo}</h3>
-                        <div class="precos">
-                            <span class="preco-antigo">R$ ${p.precoOriginal.toFixed(2).replace('.', ',')}</span>
-                            <span class="preco-atual">R$ ${p.precoOferta.toFixed(2).replace('.', ',')}</span>
-                        </div>
-                        <a href="${p.linkAfiliado}" target="_blank" class="btn-comprar">Ver Desconto</a>
-                    </div>
-                `;
-            }
+        // Executa com segurança máxima garantindo que a tela já existe
+        window.onload = function() {
