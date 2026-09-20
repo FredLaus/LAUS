@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LAUS | E-commerce & Dropshipping</title>
-    <!-- FontAwesome para os ícones e símbolo do WhatsApp -->
+    <!-- Biblioteca de ícones para as abas e WhatsApp -->
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
@@ -17,13 +17,13 @@
         .logo h1 { color: #3b82f6; font-size: 26px; font-weight: 900; }
         .logo p { color: #9ca3af; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; }
         
-        /* Barra de Pesquisa Otimizada */
+        /* Barra de Pesquisa com Filtro */
         .pesquisa-box { position: relative; width: 100%; max-width: 380px; }
         .pesquisa-box input { width: 100%; background-color: #1a1a1a; color: #e5e7eb; font-size: 14px; padding: 10px 40px 10px 20px; border-radius: 50px; border: 1px solid #374151; outline: none; transition: border-color 0.2s; }
         .pesquisa-box input:focus { border-color: #3b82f6; }
         .pesquisa-box i { position: absolute; right: 15px; top: 12px; color: #6b7280; }
 
-        /* Menu de 10 Abas com rolagem lateral */
+        /* Menu horizontal das 10 Abas */
         nav { background-color: #1a1a1a; padding: 12px; overflow-x: auto; display: flex; gap: 8px; justify-content: flex-start; border-b: 1px solid #2d3748; }
         @media (min-width: 1024px) { nav { justify-content: center; } }
         nav::-webkit-scrollbar { display: none; }
@@ -32,13 +32,12 @@
         .btn-aba { white-space: nowrap; background-color: #2d3748; border: 1px solid #4a5568; color: #a0aec0; font-size: 12px; font-weight: 600; padding: 8px 16px; border-radius: 20px; cursor: pointer; transition: all 0.2s; }
         .btn-aba.ativa { background-color: #2563eb; border-color: #3b82f6; color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
 
-        /* Vitrine */
+        /* Vitrine de Grid */
         main { flex-grow: 1; max-width: 1200px; width: 100%; margin: 0 auto; padding: 20px; }
         .vitrine-topo { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-b: 1px solid #2d3748; padding-bottom: 10px; }
         .vitrine-topo h2 { font-size: 18px; font-weight: 700; }
         .contador { font-size: 12px; color: #9ca3af; background-color: #1a1a1a; padding: 4px 12px; border-radius: 20px; border: 1px solid #2d3748; }
         
-        /* Grade Otimizada */
         .grid-produtos { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
         .card-produto { background-color: #161616; border: 1px solid #2d3748; border-radius: 10px; padding: 15px; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; }
         .card-produto:hover { transform: translateY(-4px); border-color: #2563eb; }
@@ -51,8 +50,6 @@
         .precos { margin-bottom: 12px; }
         .preco-antigo { font-size: 11px; color: #6b7280; text-decoration: line-through; display: block; }
         .preco-atual { font-size: 16px; font-weight: 700; color: #60a5fa; display: block; }
-        .btn-comprar { width: 100%; text-align: center; background-color: #2563eb; color: #fff; font-weight: bold; font-size: 11px; padding: 9px; border-radius: 6px; text-decoration: none; display: block; text-transform: uppercase; tracking: 0.5px; }
-        .btn-comprar:hover { background-color: #1d4ed8; }
 
         /* Botão Flutuante do WhatsApp */
         .btn-whatsapp { position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s; }
@@ -63,7 +60,7 @@
 </head>
 <body>
 
-    <!-- 1. CABEÇALHO COM FILTRO -->
+    <!-- 1. CABEÇALHO -->
     <header>
         <div class="header-container">
             <div class="logo">
@@ -71,7 +68,7 @@
                 <p>E-commerce & Dropshipping</p>
             </div>
             <div class="pesquisa-box">
-                <input type="text" id="inputPesquisa" placeholder="Buscar produtos nesta aba...">
+                <input type="text" id="inputPesquisa" placeholder="Buscar produtos na aba atual...">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
         </div>
@@ -80,7 +77,7 @@
     <!-- 2. MENU DAS 10 ABAS -->
     <nav id="containerAbas"></nav>
 
-    <!-- 3. VITRINE -->
+    <!-- 3. VITRINE PRINCIPAL -->
     <main>
         <div class="vitrine-topo">
             <h2 id="tituloCategoria">Carregando...</h2>
@@ -89,8 +86,8 @@
         <div id="gridProdutos" class="grid-produtos"></div>
     </main>
 
-    <!-- 4. BOTÃO DO WHATSAPP CONFIGURADO -->
-    <a href="https://wa.me de%20saber%20mais%20sobre%20um%20produto%20da%20loja%20LAUS%21" class="btn-whatsapp" target="_blank">
+    <!-- 4. BOTÃO DO WHATSAPP -->
+    <a href="https://wa.me" class="btn-whatsapp" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
@@ -98,7 +95,7 @@
         <p>&copy; 2026 LAUS. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- 5. MOTOR JAVASCRIPT AUTOMATIZADO -->
+    <!-- 5. MOTOR FILTRADOR E BASE DE DADOS -->
     <script>
         const categorias = [
             { id: "mais_vendidos", nome: "🔥 Mais Vendidos" },
@@ -113,20 +110,311 @@
             { id: "brinquedos", nome: "🧸 Brinquedos" }
         ];
 
-        let categoriaAtiva = "moda_beleza"; // Inicia na sua aba principal do print
+        let categoriaAtiva = "mais_vendidos";
 
-        // Banco de dados com links de imagem universais e leves (carregam 100% das vezes)
+        // Iniciando a montagem da lista de produtos reais sem erros de renderização
         const produtos = [
-            { id: 1, titulo: "Daily T-shirt Insider Antisuor Tecnológica Slim Fit", precoOriginal: 139.13, precoOferta: 64.00, desconto: "-54%", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 2, titulo: "Camisa Polo Powerline Pink Unissex em Piquet Casual", precoOriginal: 90.75, precoOferta: 59.90, desconto: "-34%", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 3, titulo: "Calça Jogger Masculina Importada Grife Jeans Destroyed", precoOriginal: 89.39, precoOferta: 59.00, desconto: "-34%", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 4, titulo: "Moletom Com Zíper e Capuz Raw Company Cursive", precoOriginal: 149.90, precoOferta: 104.93, desconto: "TOP", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 5, titulo: "Jaqueta Corta Vento Masculina Estilo Motociclista Sport", precoOriginal: 120.00, precoOferta: 80.00, desconto: "OFERTA", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 6, titulo: "Camiseta Canelada Americana Blusa Slim Fit Ribbed", precoOriginal: 45.88, precoOferta: 27.99, desconto: "-39%", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 7, titulo: "Calça Jogger Lisa Masculina Esportiva Para Treinos", precoOriginal: 69.90, precoOferta: 48.89, desconto: "TREINO", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 8, titulo: "Calça Jogger Skinny Premium Com Lycra e Rasgados", precoOriginal: 64.98, precoOferta: 51.99, desconto: "-20%", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" }
+            { id: 1, titulo: "40 Peças / 46 Peças Jogo De Chave Catraca Caixa Oficina", precoOriginal: 87.84, precoOferta: 28.99, desconto: "-67%", imagem: "https://picsum.photos", categoria: "ferramentas", linkAfiliado: "https://shopee.com.br" },
+            { id: 2, titulo: "2026 Nova Série 9 Relógio T800 Ultra Smart Watch Esportivo", precoOriginal: 164.25, precoOferta: 45.99, desconto: "-72%", imagem: "https://picsum.photos", categoria: "eletronicos", linkAfiliado: "https://shopee.com.br" },
+            { id: 3, titulo: "Daily T-shirt Insider Antisuor Tecnológica Slim Fit", precoOriginal: 139.13, precoOferta: 64.00, desconto: "-54%", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
+            { id: 4, titulo: "Jogo de Lençol 400 Fios Micropercal Fronha Ponto Palito", precoOriginal: 29.78, precoOferta: 13.70, desconto: "-54%", imagem: "https://picsum.photos", categoria: "casa_cozinha", linkAfiliado: "https://shopee.com.br" },
+            { id: 5, titulo: "Alaxe5 Geração Alto Falante Original Som Inteligente Home", precoOriginal: 199.96, precoOferta: 49.99, desconto: "-75%", imagem: "https://picsum.photos", categoria: "eletronicos", linkAfiliado: "https://shopee.com.br" },
+            { id: 6, titulo: "Calça Pantalona Social Feminina Sensoriel Marrant Cintura Alta", precoOriginal: 78.00, precoOferta: 66.32, desconto: "-15%", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
+            { id: 7, titulo: "Espremedor Elétrico Laranja Limão Frutas Sucos Portátil", precoOriginal: 139.90, precoOferta: 61.69, desconto: "-56%", imagem: "https://picsum.photos", categoria: "eletronicos", linkAfiliado: "https://shopee.com.br" },
+            { id: 8, titulo: "Protetor de Porta do Carro Amortecedor Borracha Antirruído", precoOriginal: 21.98, precoOferta: 10.99, desconto: "-50%", imagem: "https://picsum.photos", categoria: "mais_vendidos", linkAfiliado: "https://shopee.com.br" },
+            { id: 9, titulo: "Bicicleta Bike Ergométrica Spinning Academia Fitness Ginástica", precoOriginal: 1586.17, precoOferta: 459.99, desconto: "-71%", imagem: "https://picsum.photos", categoria: "casa_cozinha", linkAfiliado: "https://shopee.com.br" },
+            { id: 10, titulo: "Chave De Impacto Brushless 500Nm Sem Fio Com Baterias", precoOriginal: 310.32, precoOferta: 179.99, desconto: "-42%", imagem: "https://picsum.photos0", categoria: "ferramentas", linkAfiliado: "https://shopee.com.br" },
+            // === LOTES DOS SEUS PRINTS: PARTE 2 ===
+            { 
+                id: 16, 
+                titulo: "Extensão Filtro De Linha Segurança 5 Tomadas Bivolt Disjuntor", 
+                precoOriginal: 60.35, 
+                precoOferta: 31.99, 
+                desconto: "-47%", 
+                imagem: "https://picsum.photos", 
+                categoria: "eletronicos", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 17, 
+                titulo: "Rastreador AirTag Smart Tag Localizador GPS Anti-Perda Mochila", 
+                precoOriginal: 35.78, 
+                precoOferta: 17.89, 
+                desconto: "-50%", 
+                imagem: "https://picsum.photos", 
+                categoria: "eletronicos", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 18, 
+                titulo: "Perfume Cedar Fine - Le botanic - Alta Fixação Longa Duração", 
+                precoOriginal: 99.83, 
+                precoOferta: 59.90, 
+                desconto: "-40%", 
+                imagem: "https://picsum.photos", 
+                categoria: "mais_vendidos", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 19, 
+                titulo: "Spray Vedatudo 400ml Impermeabilizante Emborrachado Lajes", 
+                precoOriginal: 54.24, 
+                precoOferta: 26.58, 
+                desconto: "-51%", 
+                imagem: "https://picsum.photos", 
+                categoria: "ferramentas", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 20, 
+                titulo: "Capa Para Colchão Impermeável Matelado Protetor Zíper Casal", 
+                precoOriginal: 36.57, 
+                precoOferta: 13.90, 
+                desconto: "-62%", 
+                imagem: "https://picsum.photos", 
+                categoria: "casa_cozinha", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 21, 
+                titulo: "Camisa Polo Powerline Pink Unissex em Piquet Algodão Leve", 
+                precoOriginal: 90.75, 
+                precoOferta: 59.90, 
+                desconto: "-34%", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 22, 
+                titulo: "Calça Jogger Masculina Importada Grife Jeans Slim Fit", 
+                precoOriginal: 89.39, 
+                precoOferta: 59.00, 
+                desconto: "-34%", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 23, 
+                titulo: "Moletom Com Zíper e Capuz Raw Company Cursive Casual", 
+                precoOriginal: 149.90, 
+                precoOferta: 104.93, 
+                desconto: "TOP", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 24, 
+                titulo: "Jaqueta Corta Vento Masculina Estilo Motociclista Sport Moto", 
+                precoOriginal: 120.00, 
+                precoOferta: 80.00, 
+                desconto: "OFERTA", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 25, 
+                titulo: "Camiseta Canelada Americana Blusa Slim Fit Ribbed Listras", 
+                precoOriginal: 45.88, 
+                precoOferta: 27.99, 
+                desconto: "-39%", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 26, 
+                titulo: "Calça Jogger Lisa Masculina Esportiva Para Treinos Corrida", 
+                precoOriginal: 69.90, 
+                precoOferta: 48.89, 
+                desconto: "TREINO", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 27, 
+                titulo: "Calça Jogger Skinny Premium Com Lycra e Rasgados Jeans", 
+                precoOriginal: 64.98, 
+                precoOferta: 51.99, 
+                desconto: "-20%", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 28, 
+                titulo: "Jaqueta Puffer Bobojaco Inverno Nylon Forrada Capuz Removível", 
+                precoOriginal: 148.72, 
+                precoOferta: 69.90, 
+                desconto: "-53%", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 29, 
+                titulo: "Camiseta Anjo Money Masculina Streetwear Oversized Swag", 
+                precoOriginal: 39.90, 
+                precoOferta: 24.90, 
+                desconto: "STREET", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 30, 
+                titulo: "Blusa de Moletom Masculina Club Premium Flanelada Casaco", 
+                precoOriginal: 65.40, 
+                precoOferta: 39.90, 
+                desconto: "-39%", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 31, 
+                titulo: "VESTIDO curto com babado na barra sem short (VIRGINIA)", 
+                precoOriginal: 59.90, 
+                precoOferta: 39.60, 
+                desconto: "TREND", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 32, 
+                titulo: "Cropped Feminino Blusa Blusinha Com Bojo Elegante Casual", 
+                precoOriginal: 64.90, 
+                precoOferta: 33.15, 
+                desconto: "-49%", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 33, 
+                titulo: "Jaqueta Jeans Feminina Manga Longa Denim Linha Premium", 
+                precoOriginal: 99.00, 
+                precoOferta: 69.79, 
+                desconto: "JEANS", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 34, 
+                titulo: "Conjunto Maravilhoso de Saia e Blusa Confort Line Chic", 
+                precoOriginal: 59.90, 
+                precoOferta: 39.90, 
+                desconto: "CONJUNTO", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 35, 
+                titulo: "Vestido Feminino Curto Babado em Saia Elegante Verão", 
+                precoOriginal: 78.90, 
+                precoOferta: 53.72, 
+                desconto: "-32%", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            // === LOTES DOS SEUS PRINTS: PARTE 3 ===
+            { 
+                id: 36, 
+                titulo: "Blusa Frente Única de Bico Modal de Tricot Listrada", 
+                precoOriginal: 19.90, 
+                precoOferta: 17.91, 
+                desconto: "-10%", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 37, 
+                titulo: "Macacão Macaquinho Jardineira de Carga Longo Cargo Jumpsuit", 
+                precoOriginal: 199.24, 
+                precoOferta: 99.62, 
+                desconto: "-50%", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 38, 
+                titulo: "Conjunto Feminino 3 Peças Mula Manca Suplex Top Bojo", 
+                precoOriginal: 65.00, 
+                precoOferta: 49.90, 
+                desconto: "TOP", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 39, 
+                titulo: "Lovito Floral Vestido Boho com Botões Na Frente Estampado", 
+                precoOriginal: 89.28, 
+                precoOferta: 62.50, 
+                desconto: "-30%", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 40, 
+                titulo: "Cropped Multiformas Várias Amarrações Frente Única Verão", 
+                precoOriginal: 30.80, 
+                precoOferta: 16.94, 
+                desconto: "-45%", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 41, 
+                titulo: "Body Splash Nativa SPA PROMOÇÃO RELÂMPAGO Perfumada", 
+                precoOriginal: 39.90, 
+                precoOferta: 19.90, 
+                desconto: "PROMO", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+            { 
+                id: 42, 
+                titulo: "Shorts Masculino Tactel Praia Academia Treino Corrida", 
+                precoOriginal: 49.90, 
+                precoOferta: 29.00, 
+                desconto: "OFERTA", 
+                imagem: "https://picsum.photos", 
+                categoria: "moda_beleza", 
+                linkAfiliado: "https://shopee.com.br" 
+            },
+
+            // === ABA: PET SHOP ===
+            { id: 43, titulo: "Cama Pet Nuvem Confortável Lavável Para Cães e Gatos", precoOriginal: 89.90, precoOferta: 49.90, desconto: "TOP", imagem: "https://picsum.photos", categoria: "pet_shop", linkAfiliado: "https://shopee.com.br" },
+            { id: 44, titulo: "Comedouro e Bebedouro Automático Fonte de Água Pet Inteligente", precoOriginal: 119.00, precoOferta: 59.90, desconto: "OFERTA", imagem: "https://picsum.photos", categoria: "pet_shop", linkAfiliado: "https://shopee.com.br" },
+
+            // === ABA: SAÚDE E FITNESS ===
+            { id: 45, titulo: "Tênis De Placa De Carbono Masculino Corrida Academia Profissional", precoOriginal: 139.00, precoOferta: 66.58, desconto: "-52%", imagem: "https://picsum.photos", categoria: "saude_fitness", linkAfiliado: "https://shopee.com.br" },
+
+            // === ABA: CURSOS DIGITAIS ===
+            { id: 46, titulo: "Curso Rápido de Tráfego Pago e Vendas Organizadas para Afiliados", precoOriginal: 197.00, precoOferta: 49.90, desconto: "ONLINE", imagem: "https://picsum.photos", categoria: "cursos", linkAfiliado: "https://shopee.com.br" },
+
+            // === ABA: E-BOOKS ===
+            { id: 47, titulo: "E-book Premium: Guia Definitivo de Emagrecimento Saudável e Sucos Detox", precoOriginal: 49.90, precoOferta: 19.90, desconto: "DIGITAL", imagem: "https://picsum.photos", categoria: "ebooks", linkAfiliado: "https://shopee.com.br" },
+
+            // === ABA: BRINQUEDOS ===
+            { id: 48, titulo: "Pop It Eletrônico Antiestresse Brinquedo Infantil Game Luz", precoOriginal: 49.90, precoOferta: 34.90, desconto: "-30%", imagem: "https://picsum.photos", categoria: "brinquedos", linkAfiliado: "https://shopee.com.br" }
         ];
 
+        // === MOTOR JAVASCRIPT: LÓGICA E RENDERIZAÇÃO INSTANTÂNEA COORDENADA ===
         function renderizarAbas() {
             const container = document.getElementById('containerAbas');
             if(!container) return;
@@ -137,48 +425,58 @@
         }
 
         function mudarCategoria(idCategoria) {
-        // 📦 LISTA COMPLETA E ATUALIZADA DE PRODUTOS (PARTE 1 + PARTE 2)
-        const produtos = [
-            // === ABA: MODA E BELEZA ===
-            { id: 1, titulo: "Daily T-shirt Insider Antisuor Tecnológica Slim Fit", precoOriginal: 139.13, precoOferta: 64.00, desconto: "-54%", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 2, titulo: "Camisa Polo Powerline Pink Unissex em Piquet Casual", precoOriginal: 90.75, precoOferta: 59.90, desconto: "-34%", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 3, titulo: "Calça Jogger Masculina Importada Grife Jeans Destroyed", precoOriginal: 89.39, precoOferta: 59.00, desconto: "-34%", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 4, titulo: "Moletom Com Zíper e Capuz Raw Company Cursive", precoOriginal: 149.90, precoOferta: 104.93, desconto: "TOP", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 5, titulo: "Jaqueta Corta Vento Masculina Estilo Motociclista Sport", precoOriginal: 120.00, precoOferta: 80.00, desconto: "OFERTA", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 6, titulo: "Camiseta Canelada Americana Blusa Slim Fit Ribbed", precoOriginal: 45.88, precoOferta: 27.99, desconto: "-39%", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 7, titulo: "Calça Jogger Lisa Masculina Esportiva Para Treinos", precoOriginal: 69.90, precoOferta: 48.89, desconto: "TREINO", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 8, titulo: "Calça Jogger Skinny Premium Com Lycra e Rasgados", precoOriginal: 64.98, precoOferta: 51.99, desconto: "-20%", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 9, titulo: "Jaqueta Puffer Bobojaco Inverno Nylon Forrada Capuz", precoOriginal: 148.72, precoOferta: 69.90, desconto: "-53%", imagem: "https://picsum.photos", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 10, titulo: "Camiseta Anjo Money Masculina Streetwear Oversized", precoOriginal: 39.90, precoOferta: 24.90, desconto: "STREET", imagem: "https://picsum.photos0", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 11, titulo: "Blusa de Moletom Masculina Club Premium Flanelada", precoOriginal: 65.40, precoOferta: 39.90, discount: "-39%", imagem: "https://picsum.photos1", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 12, titulo: "VESTIDO curto com babado na barra sem short (VIRGINIA)", precoOriginal: 59.90, precoOferta: 39.60, desconto: "TREND", imagem: "https://picsum.photos2", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 13, titulo: "Cropped Feminino Blusa Blusinha Com Bojo Elegante", precoOriginal: 64.90, precoOferta: 33.15, desconto: "-49%", imagem: "https://picsum.photos3", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 14, titulo: "Jaqueta Jeans Feminina Manga Longa Denim Linha Premium", precoOriginal: 99.00, precoOferta: 69.79, desconto: "JEANS", imagem: "https://picsum.photos4", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 15, titulo: "Conjunto Maravilhoso de Saia e Blusa Confort Line", precoOriginal: 59.90, precoOferta: 39.90, desconto: "CONJUNTO", imagem: "https://picsum.photos5", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 16, titulo: "Vestido Feminino Curto Babado em Saia Elegante Verão", precoOriginal: 78.90, precoOferta: 53.72, desconto: "-32%", imagem: "https://picsum.photos6", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 17, titulo: "Blusa Frente Única de Bico Modal de Tricot Listrada", precoOriginal: 19.90, precoOferta: 17.91, desconto: "-10%", imagem: "https://picsum.photos7", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 18, titulo: "Macacão Macaquinho Jardineira de Carga Longo Cargo", precoOriginal: 199.24, precoOferta: 99.62, desconto: "-50%", imagem: "https://picsum.photos8", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 19, titulo: "Conjunto Feminino 3 Peças Mula Manca Suplex Top Bojo", precoOriginal: 65.00, precoOferta: 49.90, desconto: "TOP", imagem: "https://picsum.photos9", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 20, titulo: "Lovito Floral Vestido Boho com Botões Na Frente Boho", precoOriginal: 89.28, precoOferta: 62.50, desconto: "-30%", imagem: "https://picsum.photos0", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
-            { id: 21, titulo: "Cropped Multiformas Várias Amarrações Frente Única", precoOriginal: 30.80, precoOferta: 16.94, desconto: "-45%", imagem: "https://picsum.photos1", categoria: "moda_beleza", linkAfiliado: "https://shopee.com.br" },
+            categoriaAtiva = idCategoria;
+            document.getElementById('inputPesquisa').value = '';
+            renderizarAbas();
+            renderizarProdutos();
+        }
 
-            // === ABA: ELETRÔNICOS ===
-            { id: 22, titulo: "2026 Nova Série 9 Relógio T800 Ultra Smart Watch", precoOriginal: 164.25, precoOferta: 45.99, desconto: "-72%", imagem: "https://picsum.photos2", categoria: "eletronicos", linkAfiliado: "https://shopee.com.br" },
-            { id: 23, titulo: "Alaxe5 Geração Alto Falante Original Som Inteligente Home", precoOriginal: 199.96, precoOferta: 49.99, desconto: "-75%", imagem: "https://picsum.photos3", categoria: "eletronicos", linkAfiliado: "https://shopee.com.br" },
-            { id: 24, titulo: "Espremedor Elétrico Laranja Limão Frutas Sucos Portátil", precoOriginal: 139.90, precoOferta: 61.69, desconto: "-56%", imagem: "https://picsum.photos4", categoria: "eletronicos", linkAfiliado: "https://shopee.com.br" },
-            { id: 25, titulo: "Tablet 10.1\" com Teclado + Mouse 6GB RAM 128GB Android", precoOriginal: 1157.75, precoOferta: 520.99, desconto: "-55%", imagem: "https://picsum.photos5", categoria: "eletronicos", linkAfiliado: "https://shopee.com.br" },
-            { id: 26, titulo: "Rastreador AirTag Smart Tag Localizador GPS Anti-Perda", precoOriginal: 35.78, precoOferta: 17.89, desconto: "-50%", imagem: "https://picsum.photos6", categoria: "eletronicos", linkAfiliado: "https://shopee.com.br" },
-            { id: 27, titulo: "Extensão Filtro De Linha Segurança 5 Tomadas Bivolt", precoOriginal: 60.35, precoOferta: 31.99, desconto: "-47%", imagem: "https://picsum.photos7", categoria: "eletronicos", linkAfiliado: "https://shopee.com.br" },
+        function renderizarProdutos(filtroTexto = '') {
+            const grid = document.getElementById('gridProdutos');
+            const tituloSeacao = document.getElementById('tituloCategoria');
+            const contador = document.getElementById('contadorProdutos');
+            
+            if(!grid || !tituloSeacao || !contador) return;
 
-            // === ABA: CASA E COZINHA ===
-            { id: 28, titulo: "Jogo de Lençol 400 Fios Micropercal Fronha Ponto Palito", precoOriginal: 29.78, precoOferta: 13.70, desconto: "-54%", imagem: "https://picsum.photos8", categoria: "casa_cozinha", linkAfiliado: "https://shopee.com.br" },
-            { id: 29, titulo: "Bicicleta Bike Ergométrica Spinning Academia Fitness", precoOriginal: 1586.17, precoOferta: 459.99, desconto: "-71%", imagem: "https://picsum.photos9", categoria: "casa_cozinha", linkAfiliado: "https://shopee.com.br" },
-            { id: 30, titulo: "Inox Torneira Gourmet Preta Prata Flexível Rotação 360°", precoOriginal: 49.76, precoOferta: 25.88, desconto: "-48%", imagem: "https://picsum.photos0", categoria: "casa_cozinha", linkAfiliado: "https://shopee.com.br" },
-            { id: 31, titulo: "Capa Para Colchão Impermeável Matelado Protetor de Cama", precoOriginal: 36.57, precoOferta: 13.90, desconto: "-62%", imagem: "https://picsum.photos1", categoria: "casa_cozinha", linkAfiliado: "https://shopee.com.br" },
+            const catAtual = categorias.find(c => c.id === categoriaAtiva);
+            tituloSeacao.textContent = catAtual ? catAtual.nome : "";
 
-            // === ABA: MAIS VENDIDOS ===
-            { id: 32, titulo: "Mulheres com Deus - 365 Dias de Fé - Livro Devocional Diário", precoOriginal: 35.88, precoOferta: 17.94, desconto: "OFERTA", imagem: "https://picsum.photos2", categoria: "mais_vendidos", linkAfiliado: "https://shopee.com.br" },
-            { id: 33, titulo: "Protetor de Porta do Carro - Amortecedor Borracha Antirruído", precoOriginal: 21.98, precoOferta: 10.99, desconto: "-50%", imagem: "https://picsum.photos3", categoria: "mais_vendidos", linkAfiliado: "https://shopee.com.br" },
-            { id: 34, titulo: "Spray Vedatudo 400ml Impermeabilizante Emborrachado Original", precoOriginal: 54.24, precoOferta: 26.58, desconto: "-51%", imagem: "https://picsum.photos4", categoria: "mais_vendidos", linkAfiliado: "https://shopee.com.br" },
+            const filtrados = produtos.filter(p => 
+                p.categoria === categoriaAtiva && 
+                p.titulo.toLowerCase().includes(filtroTexto.toLowerCase())
+            );
 
-            // === ABA: FERRAMENTAS ===
+            contador.textContent = `${filtrados.length} encontrados`;
+
+            if (filtrados.length === 0) {
+                grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; color:#6b7280; padding:40px 0; font-size: 14px;">Nenhum produto encontrado nesta seção.</div>`;
+                return;
+            }
+
+            grid.innerHTML = filtrados.map(p => `
+                <div class="card-produto">
+                    <div class="img-container">
+                        <img src="${p.imagem}" alt="${p.titulo}">
+                        <span class="tag-desconto">${p.desconto}</span>
+                    </div>
+                    <h3 class="card-titulo">${p.titulo}</h3>
+                    <div class="precos">
+                        <span class="preco-antigo">R$ ${p.precoOriginal.toFixed(2).replace('.', ',')}</span>
+                        <span style="color:#60a5fa; font-weight:700; font-size:16px; display:block;">R$ ${p.precoOferta.toFixed(2).replace('.', ',')}</span>
+                    </div>
+                    <a href="${p.linkAfiliado}" target="_blank" class="btn-comprar">Ver Desconto</a>
+                </div>
+            `).join('');
+        }
+
+        // Executa o sistema de forma sincronizada e limpa após carregar o esqueleto HTML
+        window.onload = function() {
+            renderizarAbas();
+            renderizarProdutos();
+            document.getElementById('inputPesquisa').addEventListener('input', (e) => {
+                renderizarProdutos(e.target.value);
+            });
+        };
+    </script>
+</body>
+</html>
